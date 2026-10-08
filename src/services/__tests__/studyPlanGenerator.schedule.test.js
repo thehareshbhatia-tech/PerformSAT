@@ -114,6 +114,8 @@ describe('generateStudyPlan — schedule truth', () => {
 
   test('weekly minutes follow the schedule, not the intensity band day count', () => {
     const plan = generateStudyPlan(mkDiag(), { targetScore: 1200, testDate: farTestDate, studyDaysPerWeek: 3 });
-    expect(plan.minutesPerWeek).toBe(3 * plan.intensityConfig.minutesPerDay);
+    // Each study day holds at most 2 sessions of the default 30-minute cap
+    // (diagnostic-v3 §6.1), so the band's per-day minutes are clamped.
+    expect(plan.minutesPerWeek).toBe(3 * Math.min(plan.intensityConfig.minutesPerDay, 2 * 30));
   });
 });

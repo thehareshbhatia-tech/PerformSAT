@@ -60,6 +60,28 @@ const RW_SKILL_TO_DOMAIN = {
   'rhetorical-synthesis':              'expression-of-ideas',
 };
 
+// The diagnostic sitting's test ids: the live v2 runner builds 'mini-diagnostic'
+// (buildDiagnosticTest DIAGNOSTIC_TEST_ID); the v1 shell, the persisted
+// snapshot and the re-opened report use 'mini-diagnostic-v1'
+// (MINI_DIAGNOSTIC_TEST_ID). Not imported: both modules drag the plan stack
+// or the banks into every chunk that needs diagnostics.
+const DIAGNOSTIC_SITTING_TEST_IDS = new Set(['mini-diagnostic', 'mini-diagnostic-v1']);
+
+/**
+ * Is this test object a diagnostic sitting (any variant, live or re-opened)?
+ * On the diagnostic, Module 2 of each section is a different difficulty from
+ * Module 1, so a first-half vs second-half split measures the difficulty
+ * step, not fatigue — fade/stamina analysis must not run on it.
+ *
+ * @param {object} test - the test object handed to runDiagnostic
+ * @returns {boolean}
+ */
+const isDiagnosticSitting = (test) => !!(test && (
+  test.isMiniDiagnostic === true
+  || test.isDiagnostic === true
+  || DIAGNOSTIC_SITTING_TEST_IDS.has(test.id)
+));
+
 // Display names for R&W domains. skillTaxonomy.domains only covers the four
 // math domains, so without this the raw slug ('craft-and-structure') leaks
 // into domainAnalysis.displayName and scoreProjection.domainName.
@@ -387,6 +409,33 @@ const classifyError = (question, userAnswer, telemetry, skillProgress) => {
   };
 };
 
+// Trap language on a single per-choice rationale line. Word-bounded so
+// "trapezoid" never reads as a trap call-out.
+const TRAP_CALLOUT_RE = /\btraps?\b|\bcommon (?:mistake|error)s?\b/i;
+
+/**
+ * The explicit per-choice rationale lines for one answer choice in an
+ * explanation. Recognized shapes (the authored formats across the banks):
+ *   "- C: ..."  "* C) ..."  "- (C): ..."   (bulleted bare letter)
+ *   "* Choice C ($13): ..."  "**Choice C is ...**"  (the word "Choice")
+ * A bare letter is matched only right after a bullet and only when followed
+ * by ":" / ")" / "." — never as a substring of prose.
+ *
+ * @param {string} explanation - the item's explanation markdown
+ * @param {string} choiceId - a single-letter choice id ('A'..'D')
+ * @returns {string[]} matching lines (empty when none / inputs unusable)
+ */
+const findChoiceRationaleLines = (explanation, choiceId) => {
+  if (typeof explanation !== 'string' || explanation === '') return [];
+  if (typeof choiceId !== 'string' || !/^[A-Za-z]$/.test(choiceId)) return [];
+  const id = choiceId.toUpperCase();
+  const bulletLetter = new RegExp(`^\\s*(?:[-*•]\\s*)+(?:\\*\\*)?\\(?${id}\\)?(?:\\*\\*)?\\s*[:.)]`);
+  const choiceWord = new RegExp(`^\\s*(?:[-*•]\\s*)*(?:\\*\\*)?[Cc]hoice\\s+\\(?${id}\\)?(?![A-Za-z0-9])`);
+  return explanation
+    .split(/\r?\n/)
+    .filter((line) => bulletLetter.test(line) || choiceWord.test(line));
+};
+
 /**
  * Detects if a wrong answer matches a known College Board trap pattern.
  * Analyzes the relationship between the wrong answer chosen and the correct answer.
@@ -532,18 +581,19 @@ const detectTrapAnswer = (question, userAnswer) => {
   }
 
   // ── Check explanation for trap clues ──
-  const explanationLower = explanation.toLowerCase();
-  if (explanationLower.includes('trap') || explanationLower.includes('common mistake') ||
-      explanationLower.includes('common error')) {
-    // The explanation itself mentions it's a trap
-    if (typeof userAnswer === 'string' && explanationLower.includes(userAnswer.toLowerCase())) {
-      return {
-        isTrap: true,
-        trapType: 'explanation_identified',
-        confidence: 0.70,
-        reasoning: 'This wrong answer is specifically called out as a common mistake in the explanation',
-      };
-    }
+  // Only the explicit per-choice rationale line for the PICKED choice counts
+  // ("- C: ..." / "* Choice C (...): ..."). The old check tested whether the
+  // picked letter appeared anywhere in an explanation that said "trap"
+  // somewhere — a single letter always matches, so a miss on C was labelled
+  // a trap because the D line called D the trap.
+  const pickedLines = findChoiceRationaleLines(explanation, userAnswer);
+  if (pickedLines.some((line) => TRAP_CALLOUT_RE.test(line))) {
+    return {
+      isTrap: true,
+      trapType: 'explanation_identified',
+      confidence: 0.70,
+      reasoning: 'This wrong answer is specifically called out as a common mistake in the explanation',
+    };
   }
 
   // ── Adjacent Answer Trap (for ordered numeric choices) ──
@@ -863,7 +913,10 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
   const difficultyAnalysis = analyzeDifficulty(questionAnalysis);
 
   // ═══ PHASE 8: Time management analysis ═══
-  const timeAnalysis = analyzeTimeManagement(questionAnalysis, diagnosticData);
+  // The diagnostic's Module 1 / Module 2 differ in difficulty, so its half
+  // split is never read as fade (see isDiagnosticSitting).
+  const diagnosticSitting = isDiagnosticSitting(test);
+  const timeAnalysis = analyzeTimeManagement(questionAnalysis, diagnosticData, { suppressFade: diagnosticSitting });
 
   // ═══ PHASE 9: Cross-test trend analysis ═══
   const trendAnalysis = analyzeTrends(test.id, scaledScore, previousTests, skillProgress, { isMultiSection });
@@ -874,10 +927,12 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
   );
 
   // ═══ ADVANCED ANALYTICS ═══
-  const stamina = analyzeStamina(questionAnalysis);
+  const stamina = diagnosticSitting
+    ? { hasData: false, suppressed: 'diagnostic-module-difficulty' }
+    : analyzeStamina(questionAnalysis);
   const answerPatterns = analyzeAnswerPatterns(questionAnalysis, diagnosticData);
   const skillClusters = analyzeSkillClusters(questionAnalysis);
-  const rootCauseClusters = analyzeRootCauseClusters(questionAnalysis, stamina);
+  const rootCauseClusters = analyzeRootCauseClusters(questionAnalysis, stamina, timeAnalysis.timingEvidence);
 
   return {
     score: {
@@ -922,6 +977,10 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
 
     testId: test.id,
     testTitle: test.title,
+    // Additive: lets the plan generator recognize a diagnostic-sourced
+    // diagnosis without matching test ids (the live runner and the re-opened
+    // report use different ids).
+    isDiagnosticSitting: diagnosticSitting,
     analyzedAt: new Date().toISOString(),
   };
 };
@@ -1340,7 +1399,48 @@ const analyzeDifficulty = (questionAnalysis) => {
 /**
  * Analyze time management patterns.
  */
-const analyzeTimeManagement = (questionAnalysis, diagnosticData) => {
+/**
+ * Is the sitting's timing telemetry real enough to support a pacing claim?
+ * Real per-question dwell varies; a sitting where most items share one exact
+ * time (the localhost DEV auto-submit stamps 45s on every item), or where the
+ * spread is under 5s, or with no per-module clock remainders, carries no
+ * pacing signal. `uniform` = the per-item times themselves are unusable;
+ * `reliable` = usable times AND module clocks (the bar a pacing session needs).
+ *
+ * @param {Array} questionAnalysis - runDiagnostic's per-question entries
+ * @param {object} diagnosticData - runner telemetry ({ moduleTimeRemaining })
+ * @returns {{timedItems:number, stdevSeconds:number, modalShare:number,
+ *   hasModuleClocks:boolean, uniform:boolean, reliable:boolean}}
+ */
+const assessTimingEvidence = (questionAnalysis, diagnosticData) => {
+  const times = questionAnalysis
+    .map(q => q.timeSpent)
+    .filter(t => Number.isFinite(t) && t > 0);
+  const n = times.length;
+  const mean = n > 0 ? times.reduce((s, t) => s + t, 0) / n : 0;
+  const stdev = n > 0 ? Math.sqrt(times.reduce((s, t) => s + (t - mean) ** 2, 0) / n) : 0;
+  const freq = new Map();
+  times.forEach((t) => {
+    const k = Math.round(t * 10);
+    freq.set(k, (freq.get(k) || 0) + 1);
+  });
+  const modalShare = n > 0 ? Math.max(...freq.values()) / n : 0;
+  const clocks = diagnosticData?.moduleTimeRemaining;
+  const hasModuleClocks = !!clocks && typeof clocks === 'object'
+    && Object.values(clocks).some(v => Number.isFinite(v));
+  const uniform = n < 4 || n < questionAnalysis.length * 0.5 || stdev < 5 || modalShare >= 0.5;
+  return {
+    timedItems: n,
+    stdevSeconds: Math.round(stdev * 10) / 10,
+    modalShare: Math.round(modalShare * 100) / 100,
+    hasModuleClocks,
+    uniform,
+    reliable: !uniform && hasModuleClocks,
+  };
+};
+
+const analyzeTimeManagement = (questionAnalysis, diagnosticData, { suppressFade = false } = {}) => {
+  const timingEvidence = assessTimingEvidence(questionAnalysis, diagnosticData);
   const times = questionAnalysis.map(q => q.timeSpent || 0);
   const totalTime = times.reduce((s, t) => s + t, 0);
   const avgTime = times.length > 0 ? totalTime / times.length : 0;
@@ -1400,21 +1500,23 @@ const analyzeTimeManagement = (questionAnalysis, diagnosticData) => {
     }
   }
 
-  // Generate time insights
+  // Generate time insights. Fade is suppressed where the halves differ by
+  // design (the diagnostic's M1 vs M2); the dwell-based insights need
+  // per-item times that actually vary.
   const insights = [];
-  if (fadeEffect > 0.15) {
+  if (!suppressFade && fadeEffect > 0.15) {
     insights.push({
       type: 'warning',
       message: `Your accuracy dropped ${Math.round(fadeEffect * 100)}% in the second half — pacing may be an issue`,
     });
   }
-  if (avgIncorrectTime < avgCorrectTime * 0.6 && incorrectTimes.length > 3) {
+  if (!timingEvidence.uniform && avgIncorrectTime < avgCorrectTime * 0.6 && incorrectTimes.length > 3) {
     insights.push({
       type: 'warning',
       message: 'You answered wrong questions faster than correct ones — slow down on uncertain questions',
     });
   }
-  if (timeRelatedErrors.length > 3) {
+  if (!timingEvidence.uniform && timeRelatedErrors.length > 3) {
     insights.push({
       type: 'info',
       message: `${timeRelatedErrors.length} questions had time-related issues (too fast or too slow)`,
@@ -1438,11 +1540,16 @@ const analyzeTimeManagement = (questionAnalysis, diagnosticData) => {
     avgCorrectTime: Math.round(avgCorrectTime),
     avgIncorrectTime: Math.round(avgIncorrectTime),
     timeRelatedErrors: timeRelatedErrors.length,
-    fadeEffect: Math.round(fadeEffect * 100),
-    firstHalfAccuracy: Math.round(firstHalfAccuracy * 100),
-    secondHalfAccuracy: Math.round(secondHalfAccuracy * 100),
+    // null (not 0) when suppressed: "no fade measured", never "no fade".
+    fadeEffect: suppressFade ? null : Math.round(fadeEffect * 100),
+    firstHalfAccuracy: suppressFade ? null : Math.round(firstHalfAccuracy * 100),
+    secondHalfAccuracy: suppressFade ? null : Math.round(secondHalfAccuracy * 100),
+    fadeSuppressed: suppressFade,
     moduleTimeRemaining,
     insights,
+    // Pacing-claim gate (studyPlanGenerator reads timingReliable).
+    timingEvidence,
+    timingReliable: timingEvidence.reliable,
   };
 };
 
@@ -1789,7 +1896,7 @@ const categorizeTimeForDifficulty = (timeSpent, difficulty) => {
 // ROOT-CAUSE CLUSTERING
 // ═══════════════════════════════════════════════════════════════════════════
 
-const analyzeRootCauseClusters = (questionAnalysis, stamina) => {
+const analyzeRootCauseClusters = (questionAnalysis, stamina, timingEvidence = null) => {
   const wrong = questionAnalysis.filter(q => !q.isCorrect);
   const clusters = [];
 
@@ -1825,7 +1932,8 @@ const analyzeRootCauseClusters = (questionAnalysis, stamina) => {
     });
   }
 
-  const pacingMisses = wrong.filter(q =>
+  // Dwell-based: meaningless when every item carries the same time.
+  const pacingMisses = timingEvidence?.uniform ? [] : wrong.filter(q =>
     q.errorType === ERROR_TYPES.TIME_PRESSURE ||
     q.timeVsDifficulty === 'rushed'
   );
@@ -2651,4 +2759,7 @@ export {
   generateMistakeFingerprint,
   analyzeTimeAllocation,
   analyzeRootCauseClusters,
+  detectTrapAnswer,
+  findChoiceRationaleLines,
+  isDiagnosticSitting,
 };

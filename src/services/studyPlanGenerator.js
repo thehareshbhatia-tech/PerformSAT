@@ -169,6 +169,64 @@ function extractWrongAnswerIds(previousPlan, currentExcludeIds) {
 }
 
 /**
+ * Was this diagnosis produced by the mini diagnostic (any variant)? The live
+ * v2 runner's test id is 'mini-diagnostic', the v1 shell / persisted snapshot
+ * use 'mini-diagnostic-v1' (MINI_DIAGNOSTIC_TEST_ID — not imported: that
+ * module imports this one). runDiagnostic also stamps isDiagnosticSitting.
+ *
+ * @param {Object} diagnostic - runDiagnostic output
+ * @returns {boolean}
+ */
+const isDiagnosticSourced = (diagnostic) => diagnostic?.isDiagnosticSitting === true
+  || String(diagnostic?.testId || '').startsWith('mini-diagnostic');
+
+// Session length when the student gave none (spec §6.1: `sessionCapMinutes ?? 30`).
+const DEFAULT_SESSION_CAP_MINUTES = 30;
+
+/**
+ * The session budget (diagnostic-v3 spec §6.1): a study day holds at most
+ * `maxSessions` sessions of at most `cap` minutes each, and never more than
+ * the day's scheduled minutes. maxSessions is 1 on the plan's first day and
+ * on every day of a first plan built from the diagnostic, else 2 — so the
+ * intensity band can no longer prescribe 100-minute days the student never
+ * agreed to. An explicit pacing edit (userPrefs.minutesPerDay) is agreement:
+ * those minutes are honored as cap-sized sessions after day 1.
+ *
+ * @param {Object} schedule - deriveSchedule output ({ days, sessionCapMinutes })
+ * @param {{firstPlanFromDiagnostic?:boolean, explicitMinutes?:boolean}} [opts]
+ * @returns {{cap:number|null, sessionsFor:Function, dayBudget:Function}}
+ *   sessionsFor(day, {isPlanFirstDay}) → per-session minute capacities
+ */
+const buildSessionPolicy = (schedule, { firstPlanFromDiagnostic = false, explicitMinutes = false } = {}) => {
+  const statedCap = Number.isFinite(schedule?.sessionCapMinutes) && schedule.sessionCapMinutes > 0
+    ? schedule.sessionCapMinutes
+    : null;
+  // No stated session length + the student's own minutes → no invented cap.
+  const cap = statedCap ?? (explicitMinutes ? null : DEFAULT_SESSION_CAP_MINUTES);
+  const dayMinutes = (day) => (schedule?.days?.[day] > 0 ? schedule.days[day] : 35);
+  const maxSessions = (day, isPlanFirstDay) => {
+    if (isPlanFirstDay) return 1;
+    if (explicitMinutes) return Math.max(1, Math.ceil(dayMinutes(day) / cap));
+    if (firstPlanFromDiagnostic) return 1;
+    return 2;
+  };
+  const sessionsFor = (day, { isPlanFirstDay = false } = {}) => {
+    const minutes = dayMinutes(day);
+    if (cap === null) return [minutes];
+    const count = maxSessions(day, isPlanFirstDay);
+    const sessions = [];
+    let left = Math.min(minutes, cap * count);
+    while (left > 0 && sessions.length < count) {
+      sessions.push(Math.min(cap, left));
+      left -= cap;
+    }
+    return sessions;
+  };
+  const dayBudget = (day, opts) => sessionsFor(day, opts).reduce((sum, m) => sum + m, 0);
+  return { cap, sessionsFor, dayBudget };
+};
+
+/**
  * Generate a complete study plan from diagnostic results.
  *
  * @param {Object} diagnostic - Output from diagnosticEngine.runDiagnostic()
@@ -275,7 +333,17 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
   // Keep the displayed daysPerWeek honest — it previously came from the
   // intensity band even when the student said 3 days.
   intensityConfig = { ...intensityConfig, daysPerWeek: scheduledDayNames(schedule).length };
-  const minutesPerWeek = weeklyMinutes(schedule) || intensityConfig.minutesPerDay * intensityConfig.daysPerWeek;
+  // Session budget (§6.1): days hold cap-sized sessions, never the band's
+  // raw minutes. A first plan built from the diagnostic is one session per
+  // study day; every plan's first day is one session.
+  const diagnosticSourced = isDiagnosticSourced(diagnostic);
+  const sessionPolicy = buildSessionPolicy(schedule, {
+    firstPlanFromDiagnostic: isFirstPlan && diagnosticSourced,
+    explicitMinutes: !!userMinutes,
+  });
+  const minutesPerWeek = scheduledDayNames(schedule).reduce((sum, d) => sum + sessionPolicy.dayBudget(d), 0)
+    || weeklyMinutes(schedule)
+    || intensityConfig.minutesPerDay * intensityConfig.daysPerWeek;
 
   // ═══ Replay the edits ledger: student intent survives regeneration ═══
   // A skill the student explicitly removed/de-focused stays suppressed —
@@ -318,6 +386,8 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
         title: `Keep sharp: ${s.name || s.skillId}`,
         subtitle: 'Maintenance set — protect a strength while the plan rebuilds weaknesses',
         because: "You're strong here — one short set keeps it that way during a big climb.",
+        // Never scheduled in week 1 (distributeAcrossWeeks skips 'maintain').
+        planRole: 'maintain',
       });
     });
   }
@@ -333,7 +403,8 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
     isFirstPlan,
     schedule,
     scoreGap,
-    DAY_ORDER[(new Date().getDay() + 6) % 7] // JS Sunday-first → Monday-first
+    DAY_ORDER[(new Date().getDay() + 6) % 7], // JS Sunday-first → Monday-first
+    sessionPolicy,
   );
 
   // ═══ Replay custom tasks from the ledger into the fresh plan ═══
@@ -680,6 +751,9 @@ const findRelevantSections = (moduleId, skill) => {
  */
 const mapGapsToActivities = (skillGaps, completedLessons, practiceProgress, diagnostic) => {
   const activities = [];
+  // The because-line names where the evidence came from — a student whose
+  // only sitting is the diagnostic has taken no test yet.
+  const becauseOpts = isDiagnosticSourced(diagnostic) ? { sourceLabel: 'your diagnostic' } : {};
 
   skillGaps.forEach(gap => {
     // R&W gaps and unmapped math gaps become drill-shaped activities —
@@ -699,7 +773,7 @@ const mapGapsToActivities = (skillGaps, completedLessons, practiceProgress, diag
           || bankQuestionsBySkillIds([gap.skillId], { limit: 1 }).length > 0;
         if (!servable) return;
       }
-      activities.push(buildSkillDrillActivity(gap));
+      activities.push(buildSkillDrillActivity(gap, becauseOpts));
       return;
     }
     // ACTIVITY TYPE 1: Watch/re-watch lessons
@@ -727,7 +801,7 @@ const mapGapsToActivities = (skillGaps, completedLessons, practiceProgress, diag
         const prevAttempts = practiceProgress[practiceKey]?.totalAttempts || 0;
         const prevBest = practiceProgress[practiceKey]?.bestScore;
 
-        const because = buildBecauseLine(gap);
+        const because = buildBecauseLine(gap, becauseOpts);
         activities.push({
           ...(because ? { because } : {}),
           type: 'practice',
@@ -807,6 +881,8 @@ const topSkillForErrorType = (diagnostic, errorType) => {
 const generateStrategyActivities = (diagnostic) => {
   const activities = [];
   const errorCounts = diagnostic.errorPatterns.counts;
+  // "last test" is false for a student whose only sitting is the diagnostic.
+  const onSource = isDiagnosticSourced(diagnostic) ? 'on your diagnostic' : 'last test';
 
   // Trap-answer drill — a REAL set on the skill where the traps actually bit.
   if ((errorCounts[ERROR_TYPES.TRAP_SUSCEPTIBILITY] || 0) >= 2) {
@@ -822,7 +898,7 @@ const generateStrategyActivities = (diagnostic) => {
         }),
         activityType: 'trapDrill',
         title: `Beat the trap answers: ${trapSkill.name || trapSkill.skillId}`,
-        subtitle: `You picked ${errorCounts[ERROR_TYPES.TRAP_SUSCEPTIBILITY]} designed-to-tempt answers last test — most on this skill`,
+        subtitle: `You picked ${errorCounts[ERROR_TYPES.TRAP_SUSCEPTIBILITY]} designed-to-tempt answers ${onSource} — most on this skill`,
         because: `Your ${trapSkill.name || 'top'} misses were the designed-to-tempt answers. Predict the trap before you look at the choices.`,
         duration: ACTIVITY_DURATIONS.strategyDrill,
         priority: 90,
@@ -844,19 +920,24 @@ const generateStrategyActivities = (diagnostic) => {
   // Pacing session — launches the real pacing drill (buildPacingSession),
   // not a tips card. The gate is an OR: the fade branch can fire with
   // timeRelatedErrors at 0-2, so the subtitle must cite whichever evidence
-  // actually triggered it.
+  // actually triggered it. Both branches need real timing evidence (§6.5):
+  // runDiagnostic stamps timingReliable (varied per-item times + module
+  // clocks); a uniform or clock-less sitting never earns a pacing session.
+  // fadeEffect is null where it was suppressed (the diagnostic's M1 vs M2).
+  // Diagnoses that predate the field (undefined) keep the old gate.
+  const timingReliable = diagnostic.timeAnalysis?.timingReliable !== false;
   const timePressureCount = errorCounts[ERROR_TYPES.TIME_PRESSURE] || 0;
-  const fadeEffect = diagnostic.timeAnalysis.fadeEffect || 0;
-  if (timePressureCount >= 3 || fadeEffect > 15) {
+  const fadeEffect = diagnostic.timeAnalysis?.fadeEffect || 0;
+  if (timingReliable && (timePressureCount >= 3 || fadeEffect > 15)) {
     activities.push({
       type: 'strategy',
       activityType: 'pacingDrill',
       title: 'Pacing session',
       subtitle: timePressureCount >= 3
-        ? `The clock cost you ${timePressureCount} question${timePressureCount === 1 ? '' : 's'} last test`
+        ? `The clock cost you ${timePressureCount} question${timePressureCount === 1 ? '' : 's'} ${onSource}`
         : `Your accuracy dropped ${fadeEffect}% in the second half — pacing faded`,
       because: timePressureCount >= 3
-        ? `The clock cost you ${timePressureCount} question${timePressureCount === 1 ? '' : 's'} last test — timed sets at target pace rebuild the rhythm.`
+        ? `The clock cost you ${timePressureCount} question${timePressureCount === 1 ? '' : 's'} ${onSource} — timed sets at target pace rebuild the rhythm.`
         : `Your accuracy dropped ${fadeEffect}% from module start to end — timed sets rebuild the endurance.`,
       duration: ACTIVITY_DURATIONS.strategyDrill,
       priority: 85,
@@ -883,7 +964,7 @@ const generateStrategyActivities = (diagnostic) => {
         }),
         activityType: 'precisionDrill',
         title: `Stop the avoidable misses: ${carelessSkill.name || carelessSkill.skillId}`,
-        subtitle: `${errorCounts[ERROR_TYPES.CARELESS_ERROR]} questions you knew how to solve went wrong last test`,
+        subtitle: `${errorCounts[ERROR_TYPES.CARELESS_ERROR]} questions you knew how to solve went wrong ${onSource}`,
         because: `You know how to solve these — ${errorCounts[ERROR_TYPES.CARELESS_ERROR]} went wrong anyway. This set is about finishing clean, not learning new content.`,
         duration: ACTIVITY_DURATIONS.strategyDrill,
         priority: 95,
@@ -936,8 +1017,11 @@ const generateStrategyActivities = (diagnostic) => {
  */
 const DAY_ORDER = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
-const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minutesPerWeek, diagnostic, previousPlan, longitudinal = null, isFirstPlan = false, schedule = null, scoreGap = null, createdDayName = null) => {
+const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minutesPerWeek, diagnostic, previousPlan, longitudinal = null, isFirstPlan = false, schedule = null, scoreGap = null, createdDayName = null, sessionPolicy = null) => {
   const weeks = [];
+  // Per-day session capacities (§6.1). Callers without a policy get the
+  // default one for this schedule.
+  const policy = sessionPolicy || buildSessionPolicy(schedule);
 
   // ═══ SCHEDULE-AWARE DAY PLAN ═══
   // Every activity lands on a day the student actually studies. Before this,
@@ -956,6 +1040,11 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
   // old fallback clamped onto the final PAST study day). Week 1's budget is
   // also capped to its real days' capacity so a short first week never has
   // a full week's minutes stuffed onto one or two days.
+  //
+  // Budgets are SESSION-shaped (§6.1): each day holds cap-sized sessions
+  // (one on the plan's first day), an activity must fit inside one session,
+  // and nothing is ever placed on a full day — work that fits nowhere this
+  // week stays in the pool and carries to the next week.
   const createdIdx = createdDayName ? DAY_ORDER.indexOf(createdDayName) : -1;
   const remainingStudyDays = createdIdx >= 0
     ? studyDays.filter((d) => DAY_ORDER.indexOf(d) >= createdIdx)
@@ -964,8 +1053,7 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
     ? DAY_ORDER.slice(createdIdx)
     : studyDays;
   const week1Days = remainingStudyDays.length > 0 ? remainingStudyDays : remainingCalendarDays;
-  const dayBudget = (day) => (schedule?.days?.[day] > 0 ? schedule.days[day] : 35);
-  const week1BudgetCap = week1Days.reduce((sum, d) => sum + dayBudget(d), 0);
+  const planFirstDay = week1Days[0] || null;
   const testDay = schedule ? testDayFor(schedule) : 'Saturday';
   const phaseFor = (day) => {
     const idx = studyDays.indexOf(day);
@@ -1107,45 +1195,75 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
   // work (see the strategy slot below).
   const smallGap = scoreGap !== null && scoreGap < 50;
   const testCadence = totalWeeks < 4 ? 1 : 3;
+  // Week 1 never hosts a full test (the plan was just generated FROM one),
+  // so don't flag it — except a one-week plan, whose only week is the last.
+  const isTestWeekNum = (weekNum) => (weekNum !== 1 || totalWeeks === 1)
+    && (weekNum % testCadence === 0 || weekNum === totalWeeks);
+  // Check-in cadence, decided up front so the check-in's day can be kept
+  // free of drills (see the insertion pass after the loop).
+  const checkInWeeks = new Set();
+  {
+    let weeksSinceMeasurement = 0;
+    for (let w = 1; w <= totalWeeks; w++) {
+      if (isTestWeekNum(w)) { weeksSinceMeasurement = 0; continue; }
+      weeksSinceMeasurement += 1;
+      if (weeksSinceMeasurement >= 2) {
+        checkInWeeks.add(w);
+        weeksSinceMeasurement = 0;
+      }
+    }
+  }
 
   for (let weekNum = 1; weekNum <= totalWeeks; weekNum++) {
     const isFirstWeek = weekNum === 1;
     const isLastWeek = weekNum === totalWeeks;
-    // Week 1 never hosts a full test (the plan was just generated FROM one),
-    // so don't flag it — except a one-week plan, whose only week is the last.
-    const isTestWeek = (!isFirstWeek || totalWeeks === 1)
-      && (weekNum % testCadence === 0 || isLastWeek);
+    const isTestWeek = isTestWeekNum(weekNum);
 
     const weekActivities = [];
     let weekMinutesUsed = 0;
-    // Week 1 can be a partial week (created mid-week): its budget is the
-    // smaller of the weekly promise and its remaining days' real capacity.
-    const weekMinutesBudget = weekNum === 1
-      ? Math.min(minutesPerWeek, week1BudgetCap)
-      : minutesPerWeek;
 
-    // Per-day remaining minutes for this week. Activities bin into the first
-    // study day with room, so each day's load tracks the student's schedule
-    // instead of a hardcoded Mon-Fri spread. Week 1 only schedules from the
-    // plan's creation day onward (see week1Days above).
+    // Per-day session capacities for this week. Activities bin into the
+    // first study day with a session that fits them, so each day's load
+    // tracks the student's schedule instead of a hardcoded Mon-Fri spread.
+    // Week 1 only schedules from the plan's creation day onward (see
+    // week1Days above), and its first day holds one session. The day that
+    // hosts this week's full test or check-in holds nothing else — the
+    // measurement is that day's session.
     const weekDays = weekNum === 1 ? week1Days : studyDays;
-    const dayRemaining = {};
-    weekDays.forEach((d) => { dayRemaining[d] = dayBudget(d); });
-    const placeOn = (duration) => {
-      let day = weekDays.find((d) => dayRemaining[d] >= duration);
-      // No day fits the whole activity: put it where the most room is left —
-      // a slightly-overfull study day beats scheduling on a day the student
-      // told us they don't study.
-      if (!day) day = weekDays.reduce((a, b) => (dayRemaining[a] >= dayRemaining[b] ? a : b));
-      dayRemaining[day] -= duration;
-      return day;
+    const measurementDay = ((isTestWeek && !isFirstWeek) || checkInWeeks.has(weekNum)) ? testDay : null;
+    const daySessions = {};
+    weekDays.forEach((d) => {
+      daySessions[d] = d === measurementDay
+        ? []
+        : policy.sessionsFor(d, { isPlanFirstDay: weekNum === 1 && d === planFirstDay });
+    });
+    // The week's budget is exactly its days' session capacity.
+    const weekMinutesBudget = weekDays.reduce(
+      (sum, d) => sum + daySessions[d].reduce((s, m) => s + m, 0), 0,
+    );
+    const findSlot = (duration) => {
+      for (const d of weekDays) {
+        const idx = daySessions[d].findIndex((room) => room >= duration);
+        if (idx !== -1) return { day: d, idx };
+      }
+      return null;
     };
+    const canPlace = (duration) => findSlot(duration) !== null;
+    // Callers check canPlace first; a full week never over-fills a day.
+    const placeOn = (duration) => {
+      const slot = findSlot(duration);
+      if (!slot) return null;
+      daySessions[slot.day][slot.idx] -= duration;
+      return slot.day;
+    };
+    // Strength maintenance never lands in week 1 (§6.5).
+    const allowedThisWeek = (a) => !(isFirstWeek && a?.planRole === 'maintain');
 
     // ── PHASE 1: Start of week — Review + Strategy ──
     if (isFirstWeek) {
       // First week: review mistakes from the test that triggered this plan
       const reviewActivity = activityPool.find(a => a.type === 'review');
-      if (reviewActivity) {
+      if (reviewActivity && canPlace(reviewActivity.duration)) {
         const day = placeOn(reviewActivity.duration);
         weekActivities.push({
           ...reviewActivity,
@@ -1167,7 +1285,7 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
     const strategySlots = smallGap ? 2 : 1;
     for (let s = 0; s < strategySlots; s++) {
       const strategyIdx = activityPool.findIndex(a => a.type === 'strategy');
-      if (strategyIdx === -1 || weekMinutesUsed + activityPool[strategyIdx].duration > weekMinutesBudget) break;
+      if (strategyIdx === -1 || !canPlace(activityPool[strategyIdx].duration)) break;
       const day = placeOn(activityPool[strategyIdx].duration);
       weekActivities.push({
         ...activityPool[strategyIdx],
@@ -1187,18 +1305,19 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
     // preserved WITHIN each section.
     const sectionMinutes = { rw: 0, math: 0 };
     const targetFor = (sec) => Math.round(weekMinutesBudget * (sec === 'rw' ? rwShare : 1 - rwShare));
-    // First pool index of the wanted kind that fits the remaining budget
-    // (keeps the original +10 overflow tolerance and shorter-search).
+    // First pool index of the wanted kind that fits a session this week
+    // (shorter-search: a long item that fits nowhere lets a shorter one in).
     const nextFittingIdx = (wantSection) => {
       let firstOfKind = -1;
       for (let i = 0; i < activityPool.length; i++) {
         const a = activityPool[i];
+        if (!allowedThisWeek(a)) continue;
         const matches = wantSection === 'any'
           ? true
           : (isSkillWork(a) ? sectionOf(a) === wantSection : wantSection === 'neutral');
         if (!matches) continue;
         if (firstOfKind === -1) firstOfKind = i;
-        if (weekMinutesUsed + a.duration <= weekMinutesBudget + 10) return i;
+        if (canPlace(a.duration)) return i;
       }
       return firstOfKind === -1 ? -1 : -2; // -2: kind exists but nothing fits
     };
@@ -1237,14 +1356,10 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
       && weekMinutesUsed < Math.round(weekMinutesBudget * 0.85)
     ) {
       const wantSection = (sectionMinutes.rw - targetFor('rw')) <= (sectionMinutes.math - targetFor('math')) ? 'rw' : 'math';
-      // Snapshot the running total: both predicates below read it synchronously
-      // and it is only bumped after the picks, so this is the same value.
-      const usedSoFar = weekMinutesUsed;
-      let bIdx = backfillPool.findIndex(
-        (a) => sectionOf(a) === wantSection && usedSoFar + a.duration <= weekMinutesBudget + 10,
-      );
+      const fits = (a) => allowedThisWeek(a) && canPlace(a.duration);
+      let bIdx = backfillPool.findIndex((a) => sectionOf(a) === wantSection && fits(a));
       if (bIdx === -1) {
-        bIdx = backfillPool.findIndex((a) => usedSoFar + a.duration <= weekMinutesBudget + 10);
+        bIdx = backfillPool.findIndex(fits);
       }
       if (bIdx === -1) break;
       const picked = backfillPool[bIdx];
@@ -1329,14 +1444,9 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
   // Full tests anchor the cadence; a short adaptive check-in fills any
   // 2-week stretch between them so the diagnosis (and therefore every
   // personalized piece of the plan) never goes stale. Founder decision D3.
-  let weeksSinceMeasurement = 0;
+  // The weeks were chosen up front (checkInWeeks) so their day stayed free.
   weeks.forEach((week) => {
-    if (week.isTestWeek) {
-      weeksSinceMeasurement = 0;
-      return;
-    }
-    weeksSinceMeasurement += 1;
-    if (weeksSinceMeasurement >= 2) {
+    if (checkInWeeks.has(week.weekNumber)) {
       const day = testDay;
       week.activities.push({
         type: 'test',
@@ -1355,7 +1465,6 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
       });
       week.totalMinutes = (week.totalMinutes || 0) + 20;
       week.isCheckInWeek = true;
-      weeksSinceMeasurement = 0;
     }
   });
 
@@ -1502,12 +1611,20 @@ const generatePlanSummary = (diagnostic, weeklyPlan, intensity, totalWeeks, days
     headline = `${scoreGap} points${gapLabel} is a long climb — the plan starts where the points are cheapest. More runway helps if your test date can move.`;
   }
 
-  // Build the "key insight" — the single most important thing the student should know
+  // Build the "key insight" — the single most important thing the student
+  // should know. COUNTS ONLY: no branch projects points for a subset of
+  // misses. The old quick-win branch summed two independent error-type
+  // re-scorings (the top two by gain, not careless + trap), and on a 20-item
+  // diagnostic section each flipped item rescales to ~30 points — "fixing just
+  // these would add ~650 points". A count is honest at any sitting length.
   let keyInsight;
   const carelessCount = diagnostic.errorPatterns.counts[ERROR_TYPES.CARELESS_ERROR] || 0;
   const trapCount = diagnostic.errorPatterns.counts[ERROR_TYPES.TRAP_SUSCEPTIBILITY] || 0;
   const quickWinCount = carelessCount + trapCount;
-  const easyMissed = diagnostic.scoreProjection.easyWins.count;
+  const easyMissed = diagnostic.scoreProjection?.easyWins?.count || 0;
+  // Same real-timing gate as the pacing session (§6.5).
+  const timingReliable = diagnostic.timeAnalysis?.timingReliable !== false;
+  const sourceName = isDiagnosticSourced(diagnostic) ? 'diagnostic' : 'test';
 
   if (totalWrong === 0) {
     // A perfect run has no miss pattern to narrate — the generic else-branch
@@ -1519,15 +1636,21 @@ const generatePlanSummary = (diagnostic, weeklyPlan, intensity, totalWeeks, days
       type: 'clean_run',
     };
   } else if (quickWinCount >= 4) {
+    // Name only the kinds that actually occurred ("careless mistakes or trap
+    // answers" read false when careless was 0).
+    const kinds = [
+      carelessCount > 0 ? `${carelessCount} ${carelessCount === 1 ? 'was a slip' : 'were slips'} on questions you knew how to solve` : null,
+      trapCount > 0 ? `${trapCount} ${trapCount === 1 ? 'was a' : 'were'} designed-to-tempt wrong answer${trapCount === 1 ? '' : 's'}` : null,
+    ].filter(Boolean);
     keyInsight = {
-      title: 'Your biggest opportunity: quick wins',
-      message: `${quickWinCount} of your ${totalWrong} wrong answers were careless mistakes or trap answers. Fixing just these would add ~${diagnostic.scoreProjection.errorTypeProjections.slice(0, 2).reduce((s, p) => s + p.projectedPointGain, 0)} points.`,
+      title: 'Misses that were close',
+      message: `Of your ${totalWrong} misses on this ${sourceName}, ${kinds.join(' and ')}.`,
       type: 'quick_win',
     };
   } else if (easyMissed >= 3) {
     keyInsight = {
-      title: 'Stop missing easy questions',
-      message: `You missed ${easyMissed} easy questions. ${diagnostic.scoreProjection.easyWins.description}. This is the fastest path to improvement.`,
+      title: 'Easy questions slipped',
+      message: `${easyMissed} of your ${totalWrong} misses on this ${sourceName} were easy questions.`,
       type: 'easy_wins',
     };
   } else if (dominantError && dominantError.type === ERROR_TYPES.CONCEPTUAL_GAP) {
@@ -1541,10 +1664,10 @@ const generatePlanSummary = (diagnostic, weeklyPlan, intensity, totalWeeks, days
           : `Most of your misses trace to concepts that never landed. The plan rebuilds them from the definition before any timed work.`,
       type: 'conceptual',
     };
-  } else if (dominantError && dominantError.type === ERROR_TYPES.TIME_PRESSURE) {
+  } else if (timingReliable && dominantError && dominantError.type === ERROR_TYPES.TIME_PRESSURE) {
     keyInsight = {
-      title: 'The clock is costing you points',
-      message: `${dominantError.count} of your misses came under time pressure, not from the math. Pacing work comes first — it's worth 30-50 points on its own.`,
+      title: 'The clock is costing you questions',
+      message: `${dominantError.count} of your ${totalWrong} misses came under time pressure, not from the content. Pacing work comes first.`,
       type: 'time',
     };
   } else {
@@ -1669,6 +1792,8 @@ const buildDeterministicDiagnosis = (diagnostic, skillGaps) => {
   const conceptual = errorCounts[ERROR_TYPES.CONCEPTUAL_GAP] || 0;
   const timePressure = errorCounts[ERROR_TYPES.TIME_PRESSURE] || 0;
   const fadeEffect = diagnostic.timeAnalysis?.fadeEffect || 0;
+  // Same real-timing gate as the pacing session (§6.5).
+  const timingReliable = diagnostic.timeAnalysis?.timingReliable !== false;
   const totalWrong = diagnostic.errorPatterns?.totalWrong || 0;
   const topGaps = skillGaps.slice(0, 3);
 
@@ -1679,7 +1804,7 @@ const buildDeterministicDiagnosis = (diagnostic, skillGaps) => {
     const gapNames = topGaps.filter(g => g.primaryErrorType === ERROR_TYPES.CONCEPTUAL_GAP).map(g => g.skillName).slice(0, 2);
     parts.push(`Concept gaps in ${gapNames.length > 0 ? gapNames.join(' and ') : 'foundational skills'} need reteaching`);
   }
-  if (timePressure >= 3 || fadeEffect > 15) {
+  if (timingReliable && (timePressure >= 3 || fadeEffect > 15)) {
     parts.push(`Time pressure caused ${timePressure} errors${fadeEffect > 15 ? ` with a ${fadeEffect}% accuracy drop in the second half` : ''}`);
   }
 

@@ -1,0 +1,2481 @@
+{
+ "_about": "Riley's local diagnostic sitting (qa-diag-1007@example.test, attempt muywg91x-9i53iq, 2026-10-07): the persisted attempts/{id} snapshot + the users/{uid} doc. Submitted with the localhost DEV auto-submit, so per-item timeSpent is a uniform 45s and moduleTimeRemaining is empty; that is an artifact, not real timing. Diagnostic v3 spec fixture (Phase 0).",
+ "user": {
+  "email": "qa-diag-1007@example.test",
+  "firstName": "Riley",
+  "role": "student",
+  "hasTakenSAT": true,
+  "satScore": null,
+  "termsVersion": "2026-06-09",
+  "targetScore": 1400,
+  "goalScale": "composite",
+  "onboardingProfile": {
+   "version": 1,
+   "completedAt": "2026-10-08T02:08:31.112Z",
+   "answers": {
+    "timing": "lt2m",
+    "baseline": "sat",
+    "feeling": "confident",
+    "stuckHabit": "wrestle",
+    "studyWindow": "morning",
+    "sessionLength": "15m",
+    "blocker": "procrastinate",
+    "testReaction": "motivated",
+    "motivation": "colleges",
+    "commitment": "allin"
+   }
+  },
+  "createdAt": "2026-10-08T02:08:32.155Z",
+  "lastLoginAt": "2026-10-08T02:08:32.155Z",
+  "agreedToTermsAt": "2026-10-08T02:08:32.155Z",
+  "testDates": [
+   "2026-11-07"
+  ],
+  "confidentArea": "math",
+  "studyDaysPerWeek": 3,
+  "weakMathAreas": [
+   "algebra"
+  ],
+  "worryArea": "strategy",
+  "feeling": "fine",
+  "gradYear": 2026,
+  "weakRWAreas": [
+   "vocab"
+  ],
+  "testDate": "2026-11-07",
+  "innerOnboardingCompletedAt": "2026-10-08T02:09:55.116Z",
+  "onboardingCompletedAt": "2026-10-08T02:10:36.481Z"
+ },
+ "attempt": {
+  "attemptId": "muywg91x-9i53iq",
+  "testId": "mini-diagnostic-v1",
+  "diagnosticVariant": "full",
+  "completedAt": "2026-10-08T02:10:36.143Z",
+  "questionsSnapshot": [
+   {
+    "id": "rw-test10-module-1-1013",
+    "type": "multiple-choice",
+    "stem": "Which choice most effectively uses data from the table to complete the statement?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "workers with a master's degree had the highest median weekly earnings of the four groups, 1,876 dollars."
+     },
+     {
+      "id": "B",
+      "text": "workers with only a high school diploma had an unemployment rate of 4.3 percent, the highest of the four groups."
+     },
+     {
+      "id": "C",
+      "text": "the difference in median weekly earnings between adjacent levels was largest between the high school and associate's levels."
+     },
+     {
+      "id": "D",
+      "text": "median weekly earnings rose at every step up in education, from 966 dollars for high school to 1,876 for a master's."
+     }
+    ],
+    "correctAnswer": "D",
+    "explanation": "**Choice D is correct.** The economist's claim is that pay rises with each added level of education, and D reports exactly that pattern: earnings climb at every step in the table, from 966 dollars for a high school diploma to 1,876 dollars for a master's degree.\n\n**The Full Solution:**\n- The claim is about a relationship across all the levels, so the supporting data must span the levels rather than describe one of them.\n- Reading the earnings column from high school (966) to associate's (1,135) to bachelor's (1,578) to master's (1,876), pay rises at every step, including the step below a bachelor's degree.\n\n**Why the other choices are wrong:**\n- A: One group's top earnings cannot show that pay rises at each level; it says nothing about the levels below it.\n- B: It cites only the unemployment column, so it says nothing about pay.\n- C: It misreads the table: the largest gap between adjacent levels, 443 dollars, lies between the associate's and bachelor's levels, not between high school and associate's (169 dollars).",
+    "difficulty": "medium",
+    "band": 3,
+    "skills": [
+     "command-of-evidence-quantitative"
+    ],
+    "domain": "information-and-ideas",
+    "passage": "Workers in the United States who have more schooling tend to earn more. Some economists argue that most of this gain comes from finishing a four-year college degree. Reviewing government survey data for 2025, a labor economist argues instead that pay rises with each additional level of education because ______",
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": {
+     "type": "table",
+     "caption": "Unemployment rate and median weekly earnings of US workers age 25 and over, by highest level of education, 2025",
+     "headers": [
+      "Highest level of education",
+      "Unemployment rate (%)",
+      "Median weekly earnings (dollars)"
+     ],
+     "rows": [
+      {
+       "__fsNestedArray": [
+        "Master's degree",
+        "2.6",
+        "1,876"
+       ]
+      },
+      {
+       "__fsNestedArray": [
+        "Bachelor's degree",
+        "2.8",
+        "1,578"
+       ]
+      },
+      {
+       "__fsNestedArray": [
+        "Associate's degree",
+        "3.0",
+        "1,135"
+       ]
+      },
+      {
+       "__fsNestedArray": [
+        "High school diploma",
+        "4.3",
+        "966"
+       ]
+      }
+     ]
+    },
+    "questionFormula": null,
+    "section": "reading-writing",
+    "moduleIndex": 0,
+    "questionIndex": 0
+   },
+   {
+    "id": "rw-test9-module-1-915",
+    "type": "multiple-choice",
+    "stem": "Which choice most logically completes the text?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "the sea cows had been common along coasts throughout the North Pacific when Steller first described them in 1741."
+     },
+     {
+      "id": "B",
+      "text": "the fur-trading crews valued the sea cows chiefly for their hides rather than as a source of food for their voyages."
+     },
+     {
+      "id": "C",
+      "text": "the species would have disappeared just as quickly even if the expedition's route had never become known to fur traders."
+     },
+     {
+      "id": "D",
+      "text": "the animals' vulnerability, combined with steady hunting after the expedition, drove the species to extinction."
+     }
+    ],
+    "correctAnswer": "D",
+    "explanation": "**Choice D is correct.** The passage assembles a cause on each side — defenseless, concentrated animals; regular provisioning stops that began once the route was known — and the twenty-seven-year collapse is the effect those causes jointly explain.\n\n**The Full Solution:**\n- Vulnerability alone had not eliminated the species before 1741; the animals were there for Steller to study.\n- What changed afterward was sustained hunting pressure, arriving precisely when the islands entered the traders' routes.\n- The inference that fits both premises is the conjunction D states: vulnerability plus new, steady hunting produced extinction by 1768.\n\n**Why the other choices are wrong:**\n- A: The passage says the entire population \"was confined to a single small archipelago\" — the opposite of a species common across the North Pacific.\n- B: The text says the crews killed the animals \"to provision their ships\" — for food, not hides.\n- C: It severs the causal link the passage builds — without the route's discovery, the hunting that followed it has no explanation.",
+    "difficulty": "medium",
+    "band": 3,
+    "skills": [
+     "inferences"
+    ],
+    "domain": "information-and-ideas",
+    "passage": "Steller's sea cow, a massive northern relative of the manatee, entered the scientific record in 1741, when the naturalist Georg Wilhelm Steller studied the animals in the shallows of the Commander Islands. By 1768 the species was gone. The sea cows were slow, buoyant, and unable to dive, and the entire population was confined to a single small archipelago. After the expedition's route became known, fur-trading crews began stopping at the islands regularly, killing the animals to provision their ships. Given how swiftly the end came, researchers infer that ______",
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "reading-writing",
+    "moduleIndex": 0,
+    "questionIndex": 1
+   },
+   {
+    "id": "rw-test11-module-2-1128",
+    "type": "multiple-choice",
+    "stem": "Which choice completes the text with the most logical and precise word or phrase?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "recovered"
+     },
+     {
+      "id": "B",
+      "text": "fluctuated"
+     },
+     {
+      "id": "C",
+      "text": "intensified"
+     },
+     {
+      "id": "D",
+      "text": "contracted"
+     }
+    ],
+    "correctAnswer": "D",
+    "explanation": "**Choice D is correct.** Cheaper quartz watches \"flooded the market,\" and Swiss watch employment fell \"from about 90,000 workers in 1970 to about 28,000 by 1988,\" so the industry's workforce was shrinking. \"Contracted\" means became smaller.\n\n**The Full Solution:**\n- The text describes a cheaper, more accurate rival product taking over the market for Swiss mechanical watches.\n- \"Steadily\" signals a change in one direction over time, and \"falling\" names that direction.\n- A steady shrinking of employment is a contraction, so \"contracted\" fits.\n\n**Why the other choices are wrong:**\n- A: \"Recovered\" means returned to an earlier, higher level, but the text describes only a fall.\n- B: \"Fluctuated\" means rose and fell irregularly, which conflicts with \"steadily\" and with the one-way drop from 90,000 to 28,000.\n- C: \"Intensified\" means grew stronger, the opposite of what the falling numbers show.",
+    "difficulty": "medium",
+    "band": 3,
+    "skills": [
+     "words-in-context"
+    ],
+    "domain": "craft-and-structure",
+    "passage": "For decades, Swiss companies led the world in making mechanical watches, which keep time with springs and gears. In the 1970s, however, cheaper and more accurate watches run by quartz crystals, many of them made in Japan, flooded the market. Employment in the Swiss watch industry steadily ______, falling from about 90,000 workers in 1970 to about 28,000 by 1988.",
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "reading-writing",
+    "moduleIndex": 0,
+    "questionIndex": 2
+   },
+   {
+    "id": "rw-test11-module-1-1107",
+    "type": "multiple-choice",
+    "stem": "Which choice best states the main purpose of the text?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "To argue that materials grown from fungi will soon replace animal leather in most consumer products"
+     },
+     {
+      "id": "B",
+      "text": "To explain why leather substitutes made from plastic shed fragments as they age"
+     },
+     {
+      "id": "C",
+      "text": "To compare the cost of producing fungal materials with the cost of producing animal hide"
+     },
+     {
+      "id": "D",
+      "text": "To introduce a material under development, noting its promise and a question that remains open"
+     }
+    ],
+    "correctAnswer": "D",
+    "explanation": "**Choice D is correct.** The text presents mycelium sheets — how they are grown and finished — then closes by balancing early promise (\"resist tearing well for their weight\") against an unresolved issue (\"must still prove the material's durability at scale\").\n\n**The Full Solution:**\n- The opening gives the motivation: plastic substitutes wear poorly, so scientists sought an alternative.\n- The middle describes the material's production, from trays of sawdust to a supple, dyeable sheet.\n- The final sentence explicitly pairs an open question with encouraging early results — the hallmark of an introduction to a technology still in development, which is what choice D captures.\n\n**Why the other choices are wrong:**\n- A: The text predicts no replacement of leather; it reports early tests and an unproven property, not a coming triumph.\n- B: The shedding of plastic fragments is a one-sentence premise, not the subject the text develops.\n- C: Cost is never mentioned anywhere in the text.",
+    "difficulty": "medium",
+    "band": 3,
+    "skills": [
+     "text-structure-and-purpose"
+    ],
+    "domain": "craft-and-structure",
+    "passage": "Leather substitutes made from plastic have long been criticized for wearing poorly and for shedding synthetic fragments as they age. Materials scientists have therefore turned to an unlikely source: the root-like web of threads, called mycelium, that a fungus spreads through whatever it feeds on. Grown in trays of sawdust or agricultural waste, the mat of threads can be harvested in weeks. It is then compressed and treated to yield a supple sheet that can be dyed, embossed, and stitched like animal hide. Manufacturers must still prove the material's durability at scale, but early tests suggest the sheets resist tearing well for their weight.",
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "reading-writing",
+    "moduleIndex": 0,
+    "questionIndex": 3
+   },
+   {
+    "id": "rw-test12-module-2-1246",
+    "type": "multiple-choice",
+    "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "kilometers, but"
+     },
+     {
+      "id": "B",
+      "text": "kilometers,"
+     },
+     {
+      "id": "C",
+      "text": "kilometers but,"
+     },
+     {
+      "id": "D",
+      "text": "kilometers"
+     }
+    ],
+    "correctAnswer": "A",
+    "explanation": "**Choice A is correct.** The sentence joins two independent clauses: \"The course for the 1908 London Olympics measured 42.195 kilometers\" and \"it was not until 1921 that the sport's governing body made that length the official standard.\" A comma followed by the coordinating conjunction \"but\" correctly joins them and signals the contrast.\n\n**The Full Solution:**\n- Each clause has its own subject and verb and could stand alone as a sentence.\n- Two independent clauses can be joined with a comma plus a coordinating conjunction.\n- \"Kilometers, but\" does this and shows the contrast between the 1908 distance and the later date when it became official.\n\n**Why the other choices are wrong:**\n- B: A comma alone between two independent clauses creates a comma splice.\n- C: The comma must come before \"but,\" not after it.\n- D: With no punctuation or conjunction, the two clauses run together.",
+    "difficulty": "medium",
+    "band": 3,
+    "skills": [
+     "boundaries"
+    ],
+    "domain": "standard-english-conventions",
+    "passage": "The marathons run at the early modern Olympic Games were about 40 kilometers long, and the exact distance changed from one Games to the next. The course for the 1908 London Olympics measured 42.195 ____ it was not until 1921 that the sport's governing body made that length the official standard.",
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "reading-writing",
+    "moduleIndex": 0,
+    "questionIndex": 4
+   },
+   {
+    "id": "rw-test2-module-1-222",
+    "type": "multiple-choice",
+    "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "visitors to an anechoic chamber often describe the silence as disorienting."
+     },
+     {
+      "id": "B",
+      "text": "an anechoic chamber absorbs sound so completely that it is quieter than any natural environment."
+     },
+     {
+      "id": "C",
+      "text": "the silence of an anechoic chamber is often described as disorienting."
+     },
+     {
+      "id": "D",
+      "text": "there is no echo at all inside an anechoic chamber."
+     }
+    ],
+    "correctAnswer": "B",
+    "explanation": "**Choice B is correct.** The opening modifier — \"Lined on every surface with deep foam wedges\" — must attach to the thing that is actually lined, and only choice B places that thing, \"an anechoic chamber,\" immediately after the comma.\n\n**The Full Solution:**\n- An introductory participial phrase modifies the subject of the clause that follows it; the reader attaches \"Lined on every surface...\" to whatever noun comes first.\n- Ask what is lined with foam wedges: the chamber. The clause after the comma must therefore begin with the chamber.\n- Choice B does exactly that — \"an anechoic chamber absorbs sound so completely...\" — and the sentence's logic snaps into place.\n\n**Why the other choices are wrong:**\n- A: It makes \"visitors\" the subject, absurdly implying that the visitors are lined with foam wedges.\n- C: It hangs the modifier on \"the silence,\" but silence has no surfaces to line; the modifier dangles.\n- D: The expletive \"there is\" gives the modifier no subject at all to attach to, leaving \"Lined on every surface\" dangling with nothing lined.",
+    "difficulty": "medium",
+    "band": 3,
+    "skills": [
+     "form-structure-and-sense"
+    ],
+    "domain": "standard-english-conventions",
+    "passage": "Lined on every surface with deep foam wedges that swallow reflections, ______ In such a room, the ear begins to notice sounds it normally ignores: the rush of blood, the beating of one's own heart.",
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "reading-writing",
+    "moduleIndex": 0,
+    "questionIndex": 5
+   },
+   {
+    "id": "rw-test8-module-1-823",
+    "type": "multiple-choice",
+    "stem": "Which choice completes the text with the most logical transition?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "For example,"
+     },
+     {
+      "id": "B",
+      "text": "Nevertheless,"
+     },
+     {
+      "id": "C",
+      "text": "As a result,"
+     },
+     {
+      "id": "D",
+      "text": "Meanwhile,"
+     }
+    ],
+    "correctAnswer": "C",
+    "explanation": "**Choice C is correct.** The last sentence states the consequence of the setup the first two describe, a metal path to the ground that carries current more easily than the building does, so a cause-and-effect transition is required.\n\n**The Full Solution:**\n- The first two sentences explain the design: a metal rod wired to a conductor in the ground, and metal carries current far more easily than wood, brick, or stone.\n- The last sentence reports what that design achieves: a bolt follows the wire into the earth instead of passing through the building.\n- The outcome follows from the design, and \"As a result,\" marks exactly that relation.\n\n**Why the other choices are wrong:**\n- A: \"For example,\" would make the bolt's path an illustration of metal's conductivity rather than its consequence.\n- B: \"Nevertheless,\" signals a contrast, but the bolt's path is what the design leads one to expect.\n- D: \"Meanwhile,\" signals something happening at the same time, not a result.",
+    "difficulty": "medium",
+    "band": 3,
+    "skills": [
+     "transitions"
+    ],
+    "domain": "expression-of-ideas",
+    "passage": "A lightning rod is a metal rod mounted at the highest point of a building and connected by a heavy wire to a metal conductor buried in the ground. Metal carries electric current far more easily than wood, brick, or stone. ______ a bolt that strikes the rod follows the wire down into the earth instead of passing through the building's roof and walls.",
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "reading-writing",
+    "moduleIndex": 0,
+    "questionIndex": 6
+   },
+   {
+    "id": "rw-test9-module-1-926",
+    "type": "multiple-choice",
+    "stem": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "The Grand Canal, the world's longest artificial waterway, runs about 1,776 kilometers through eastern China, from Beijing to Hangzhou."
+     },
+     {
+      "id": "B",
+      "text": "A waterway first joined into one system during the Sui dynasty was named a UNESCO World Heritage Site in 2014."
+     },
+     {
+      "id": "C",
+      "text": "Artificial waterways in eastern China link cities in the north with cities in the south."
+     },
+     {
+      "id": "D",
+      "text": "The Grand Canal, whose sections were first joined into one system during the Sui dynasty (581–618 CE), was named a UNESCO World Heritage Site in 2014."
+     }
+    ],
+    "correctAnswer": "A",
+    "explanation": "**Choice A is correct.** An introduction for unfamiliar readers must name the Grand Canal and say what and where it is. Choice A does all of this in one sentence: it is the world's longest artificial waterway, running about 1,776 kilometers through eastern China from Beijing to Hangzhou.\n\n**The Full Solution:**\n- The goal has two demands: name the canal and make it understandable to readers who have never heard of it.\n- Choice A names it, identifies what it is, and gives its location and length.\n\n**Why the other choices are wrong:**\n- B: It never names the Grand Canal or says where it is.\n- C: It describes waterways in general and never mentions the Grand Canal.\n- D: It assumes the reader already knows what the Grand Canal is, giving historical dates without explaining what the canal is or where it runs.",
+    "difficulty": "medium",
+    "band": 3,
+    "skills": [
+     "rhetorical-synthesis"
+    ],
+    "domain": "expression-of-ideas",
+    "passage": null,
+    "passages": null,
+    "studentNotes": {
+     "intro": "While researching a topic, a student has taken the following notes:",
+     "bullets": [
+      "The Grand Canal is a system of artificial waterways in eastern China.",
+      "Its main route runs about 1,776 kilometers, linking Beijing in the north with Hangzhou in the south.",
+      "Its sections were first joined into one system during the Sui dynasty (581–618 CE).",
+      "It is the longest artificial waterway in the world.",
+      "It was named a UNESCO World Heritage Site in 2014."
+     ],
+     "goal": "The student wants to introduce the Grand Canal to an audience unfamiliar with it."
+    },
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "reading-writing",
+    "moduleIndex": 0,
+    "questionIndex": 7
+   },
+   {
+    "id": "rw-test3-module-1-311",
+    "type": "multiple-choice",
+    "stem": "Which choice best states the main idea of the text?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "A simple oral solution, used when the standard treatment was unavailable, proved highly effective and became a lifesaving therapy worldwide."
+     },
+     {
+      "id": "B",
+      "text": "Intravenous fluid remained too scarce in most countries for cholera to be treated effectively."
+     },
+     {
+      "id": "C",
+      "text": "Cholera cannot be treated with plain drinking water because the inflamed intestine is unable to absorb it."
+     },
+     {
+      "id": "D",
+      "text": "Physicians working in the 1971 refugee camps lacked the training needed to administer intravenous fluid safely to the thousands of cholera patients they faced."
+     }
+    ],
+    "correctAnswer": "A",
+    "explanation": "**Choice A is correct.** The text's arc runs from crisis to solution to legacy: with intravenous fluid unavailable, a salt-and-glucose drink cut deaths from thirty percent to under four and became a worldwide therapy — which is A, point for point.\n\n**The Full Solution:**\n- The first sentence sets up the problem (fluid loss the gut cannot repair on its own); the second establishes the emergency (no standard treatment available).\n- The third explains the improvised remedy and why it works; the fourth measures its success and extends it to \"tens of millions of lives worldwide.\"\n\n**Why the other choices are wrong:**\n- B: The scarcity of intravenous fluid is the story's starting condition, not its point — and the text describes that scarcity only in the camps, not in \"most countries.\"\n- C: This is a supporting detail explaining why plain water fails; it is background for the main idea, not the idea itself.\n- D: The text attributes the lack of intravenous treatment to supply, never to the physicians' training.",
+    "difficulty": "medium",
+    "band": 3,
+    "skills": [
+     "central-ideas-and-details"
+    ],
+    "domain": "information-and-ideas",
+    "passage": "Cholera kills by draining the body of fluid faster than plain water can replace it, because the inflamed intestine cannot absorb water on its own. In refugee camps during the 1971 Bangladesh war, physician Dilip Mahalanabis faced thousands of cholera patients with almost no intravenous fluid, then the standard treatment. His team instead gave patients a drink of water, salt, and glucose; the sugar carries the salt across the intestinal wall, and water follows. Deaths fell from roughly thirty percent of patients to under four, and oral rehydration therapy went on to save tens of millions of lives worldwide.",
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "reading-writing",
+    "moduleIndex": 0,
+    "questionIndex": 8
+   },
+   {
+    "id": "rw-test9-module-1-908",
+    "type": "multiple-choice",
+    "stem": "Based on the texts, how would the author of Text 2 most likely respond to the interpretation presented in Text 1?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "The author would caution that the acoustic effects, though real and measurable, do not by themselves show that the galleries were built to produce them."
+     },
+     {
+      "id": "B",
+      "text": "The author would deny that the galleries at Chavín de Huántar meaningfully alter the sound of the trumpets played inside them."
+     },
+     {
+      "id": "C",
+      "text": "The author would argue that the conch-shell trumpets were most likely played in the open plaza rather than within the temple's galleries."
+     },
+     {
+      "id": "D",
+      "text": "The author would agree that the priests deliberately engineered the galleries' acoustics but would doubt that pilgrims found the resulting effects disorienting."
+     }
+    ],
+    "correctAnswer": "A",
+    "explanation": "**Choice A is correct.** The author of Text 2 confirms the effects but qualifies the inference drawn from them: \"demonstrating an effect is not the same as demonstrating a plan.\" Rick's interpretation treats the acoustics as engineered for authority; the author of Text 2 would answer that intent needs independent evidence.\n\n**The Full Solution:**\n- Text 1's claim has two layers: the galleries produce striking effects, and the builders designed them to do so.\n- Text 2 accepts the first layer outright — the effects \"can be reproduced and measured today.\"\n- Its reservation targets the second layer only: buildings alter sound regardless of intent, so design must be established separately. That is precisely the caution choice A states.\n\n**Why the other choices are wrong:**\n- B: It reverses Text 2's position — the author reports measurements confirming the galleries' effects on sound.\n- C: Neither text raises the question of where the trumpets were played; Text 2 concerns the galleries themselves.\n- D: It grants the very point Text 2 declines to grant — deliberate engineering — and invents a doubt about pilgrims' reactions that the author never expresses.",
+    "difficulty": "medium",
+    "band": 3,
+    "skills": [
+     "cross-text-connections"
+    ],
+    "domain": "craft-and-structure",
+    "passage": null,
+    "passages": [
+     {
+      "label": "Text 1",
+      "text": "At Chavín de Huántar, a 3,000-year-old temple complex in the Peruvian Andes, the archaeologist John Rick has explored narrow stone galleries that channel and distort sound. Conch-shell trumpets recovered at the site produce loud, roaring tones, and the galleries carry and reshape that sound. Rick sees these effects as tools of authority. By staging overwhelming experiences that only they could control, he argues, the temple's priests showed visiting pilgrims seemingly supernatural power."
+     },
+     {
+      "label": "Text 2",
+      "text": "Acoustic measurements at Chavín de Huántar have confirmed that the galleries transmit and transform the sound of conch-shell trumpets. The disorienting effects can be reproduced and measured today. But demonstrating an effect is not the same as demonstrating a plan. Any building alters sound whether or not its makers intend it to. Linking the galleries' acoustics to deliberate design therefore requires independent evidence about how the builders used and changed these spaces over time."
+     }
+    ],
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "reading-writing",
+    "moduleIndex": 0,
+    "questionIndex": 9
+   },
+   {
+    "id": "rw-test11-module-1-1112",
+    "type": "multiple-choice",
+    "stem": "Which finding, if true, would most directly support the team's proposal?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "Medieval chroniclers tended to record auroras only when displays were bright enough to alarm the public."
+     },
+     {
+      "id": "B",
+      "text": "Some chronicles also describe other celestial events, such as comets and eclipses, that modern astronomy can date precisely."
+     },
+     {
+      "id": "C",
+      "text": "Chronicles record auroras far more often in centuries when tree-ring isotopes indicate high solar activity."
+     },
+     {
+      "id": "D",
+      "text": "Aurora sightings appear in chronicles written at widely different latitudes across Europe and East Asia."
+     }
+    ],
+    "correctAnswer": "C",
+    "explanation": "**Choice C is correct.** The proposal is that chronicle sightings can stand in for direct measurements of solar activity. If chronicle counts rise exactly when an independent physical proxy — tree-ring isotopes — says solar activity was high, the stand-in is validated.\n\n**The Full Solution:**\n- A stand-in earns trust by agreeing with something already trusted. The team cannot check chronicles against instruments (none existed), so the test must be another independent record of solar activity.\n- Elevated radioactive isotopes in tree rings are such a record; a match between chronicle aurora counts and isotope-inferred activity directly supports using the chronicles to trace the solar cycle.\n\n**Why the other choices are wrong:**\n- A: A brightness threshold means faint displays went unrecorded — a limitation of the record, not evidence it tracks the solar cycle.\n- B: Accurate comet reports speak to chroniclers' general reliability, not to whether aurora counts follow solar activity.\n- D: Geographic spread describes the record's breadth; it says nothing about whether sighting frequency rises and falls with the Sun.",
+    "difficulty": "medium",
+    "band": 3,
+    "skills": [
+     "command-of-evidence-textual"
+    ],
+    "domain": "information-and-ideas",
+    "passage": "The Sun's activity rises and falls on a roughly eleven-year cycle, but direct measurements of that cycle reach back only a few centuries. Auroras — the shimmering lights that appear when charged particles from the Sun strike the upper atmosphere — become more frequent when solar activity peaks. One team of researchers has proposed that the many aurora sightings recorded in medieval European and East Asian chronicles could serve as a stand-in for direct measurements. The records would allow the solar cycle to be traced through centuries that no instrument ever observed.",
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "reading-writing",
+    "moduleIndex": 1,
+    "questionIndex": 0
+   },
+   {
+    "id": "rw-test4-module-1-415",
+    "type": "multiple-choice",
+    "stem": "Which choice most logically completes the text?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "without distinct brands, cowboys could not reliably tell one ranch's cattle from another's on shared land."
+     },
+     {
+      "id": "B",
+      "text": "cowboys often misidentified cattle even when they checked each brand carefully against the entries in the book."
+     },
+     {
+      "id": "C",
+      "text": "brands were assigned only to ranches in regions where cattle had frequently been stolen."
+     },
+     {
+      "id": "D",
+      "text": "ranchers were expected to design a new brand every season so that no two roundups would ever look alike."
+     }
+    ],
+    "correctAnswer": "A",
+    "explanation": "**Choice A is correct.** Each ranch gave its cattle its own brand so that cowboys could tell which ranch owned an animal grazing on shared land. A system built for that purpose implies that, without it, the cattle themselves would not show who owned them.\n\n**The Full Solution:**\n- On the open range, cattle from many ranches grazed together on the same unfenced land.\n- Each ranch had its own brand, and the brands were recorded in pocket-sized books.\n- Matching a steer's brand to the book told cowboys exactly which ranch owned it.\n- The practice exists to solve a problem: mixed herds of unmarked cattle would look alike. That is what A states.\n\n**Why the other choices are wrong:**\n- B: The text presents checking a brand against the book as a reliable way to identify an owner; nothing suggests frequent mistakes.\n- C: The text says each ranch marked its animals, not only ranches in areas with cattle theft.\n- D: Changing brands every season would make the recorded books useless, the opposite of what the practice is for.",
+    "difficulty": "medium",
+    "band": 3,
+    "skills": [
+     "inferences"
+    ],
+    "domain": "information-and-ideas",
+    "passage": "On the open range of the American West, cattle belonging to many different ranches grazed together on the same unfenced land. Each ranch therefore marked its animals with its own brand, a symbol burned into the hide: one might be a single letter, while another set a letter above a straight bar. As brands multiplied, they were recorded in books small enough for ranchers to carry in their pockets. By matching the mark on a steer to an entry in the book, cowboys at a roundup could tell exactly which ranch owned it. The practice suggests that ______",
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "reading-writing",
+    "moduleIndex": 1,
+    "questionIndex": 1
+   },
+   {
+    "id": "rw-test3-module-1-307",
+    "type": "multiple-choice",
+    "stem": "Which choice best describes the function of the underlined sentence in the text as a whole?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "It offers a competing explanation for the severity of the outbreak that Philadelphia experienced"
+     },
+     {
+      "id": "B",
+      "text": "It concedes that early action by a city government could do little to alter the course of the pandemic"
+     },
+     {
+      "id": "C",
+      "text": "It introduces the reservation that historians raise about drawing conclusions from the two cities"
+     },
+     {
+      "id": "D",
+      "text": "It supplies the contrasting case on which the comparison between the two cities, and the rest of the text, depends"
+     }
+    ],
+    "correctAnswer": "D",
+    "explanation": "**Choice D is correct.** The underlined sentence provides the second half of the comparison — the city that acted fast and fared better — and everything after it (the historians' caution, the policy debate) is a response to the contrast it completes.\n\n**The Full Solution:**\n- The passage is built on a paired example: Philadelphia's delay and its consequences, then St. Louis's speed and its consequences.\n- Without the underlined sentence there is no comparison, no reason for historians to urge caution about it, and no \"touchstone\" for later debates — the final sentence refers directly to the pairing this sentence creates.\n\n**Why the other choices are wrong:**\n- A: The sentence explains nothing about Philadelphia; it reports a different city's different outcome.\n- B: It implies the opposite of a concession — St. Louis's early action coincided with a far lower death rate.\n- C: The reservation belongs to the following sentence; the underlined sentence presents the evidence the reservation is about.",
+    "difficulty": "hard",
+    "band": 4,
+    "skills": [
+     "text-structure-and-purpose"
+    ],
+    "domain": "craft-and-structure",
+    "passage": "In the 1918 influenza pandemic, American cities differed sharply in how quickly they acted. Philadelphia allowed a large public parade to proceed in late September; within weeks its hospitals were overwhelmed, and its death rate became one of the highest of any major city. __St. Louis, by contrast, closed schools, theaters, and other gathering places within days of its first cases, and its death rate remained well below Philadelphia's.__ Historians of public health caution that the two cities differed in more ways than their policies, but the comparison remains a touchstone in debates over how governments should act in an epidemic's earliest days.",
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "reading-writing",
+    "moduleIndex": 1,
+    "questionIndex": 2
+   },
+   {
+    "id": "rw-test11-module-2-1130",
+    "type": "multiple-choice",
+    "stem": "Which choice completes the text with the most logical and precise word or phrase?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "supersede"
+     },
+     {
+      "id": "B",
+      "text": "ratify"
+     },
+     {
+      "id": "C",
+      "text": "conceal"
+     },
+     {
+      "id": "D",
+      "text": "replicate"
+     }
+    ],
+    "correctAnswer": "A",
+    "explanation": "**Choice A is correct.** The Rudolphine Tables, built on Tycho's more precise observations, took the place of the Alfonsine Tables \"as astronomers' standard reference\" — they would \"supersede\" the older tables.\n\n**The Full Solution:**\n- The setup: the Alfonsine Tables had served for three centuries, but Tycho caught them mispredicting a conjunction.\n- The response: decades of better observation, and new tables published by Kepler in 1627.\n- The phrase \"as astronomers' standard reference\" shows the new tables taking over the old tables' role. \"Supersede\" — to displace something older and take its place — names exactly that.\n\n**Why the other choices are wrong:**\n- B: \"Ratify\" means to confirm or approve; tables built because the old ones failed would not confirm them.\n- C: \"Conceal\" would mean hiding the older tables, but new tables replace old ones by being used instead, not by hiding them.\n- D: \"Replicate\" is the trap — new tables were indeed produced, but copying the Alfonsine Tables would reproduce the errors Tycho had caught.",
+    "difficulty": "hard",
+    "band": 4,
+    "skills": [
+     "words-in-context"
+    ],
+    "domain": "craft-and-structure",
+    "passage": "Astronomers relied for three centuries on the Alfonsine Tables, compiled in thirteenth-century Toledo, to compute planetary positions. But in 1563 the young Tycho Brahe saw that the tables mispredicted a close conjunction of Jupiter and Saturn. His decades of precise observation later allowed Johannes Kepler to publish the Rudolphine Tables (1627), which would ______ the older tables as astronomers' standard reference.",
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "reading-writing",
+    "moduleIndex": 1,
+    "questionIndex": 3
+   },
+   {
+    "id": "rw-test8-module-2-846",
+    "type": "multiple-choice",
+    "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "all,"
+     },
+     {
+      "id": "B",
+      "text": "all"
+     },
+     {
+      "id": "C",
+      "text": "all, but"
+     },
+     {
+      "id": "D",
+      "text": "all:"
+     }
+    ],
+    "correctAnswer": "D",
+    "explanation": "**Choice D is correct.** The words before the blank form a complete independent clause that announces \"one strategy,\" and the words after it explain what that strategy is. A colon is the conventional mark for introducing such an explanation.\n\n**The Full Solution:**\n- \"The fish survives by relying on one strategy above all\" is a complete clause that points ahead to the strategy.\n- \"It burrows into the mud and seals itself inside a hardened cocoon of mucus until the rains return\" spells that strategy out.\n- A colon joins a complete clause to the explanation it introduces.\n\n**Why the other choices are wrong:**\n- A: A comma alone between two independent clauses creates a comma splice.\n- B: With no punctuation, the two clauses run together.\n- C: \"But\" signals a contrast, yet the second clause explains the strategy rather than contradicting it.",
+    "difficulty": "medium",
+    "band": 3,
+    "skills": [
+     "boundaries"
+    ],
+    "domain": "standard-english-conventions",
+    "passage": "Each dry season, the shallow pools where the West African lungfish lives can disappear entirely. The fish survives by relying on one strategy above ______ it burrows into the mud and seals itself inside a hardened cocoon of mucus until the rains return.",
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "reading-writing",
+    "moduleIndex": 1,
+    "questionIndex": 4
+   },
+   {
+    "id": "rw-test8-module-2-847",
+    "type": "multiple-choice",
+    "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "the editors finally published the complete dictionary in 1928"
+     },
+     {
+      "id": "B",
+      "text": "completing the dictionary took its editors until 1928"
+     },
+     {
+      "id": "C",
+      "text": "the dictionary was finally published in full in 1928"
+     },
+     {
+      "id": "D",
+      "text": "there were ten bound volumes in the finished dictionary"
+     }
+    ],
+    "correctAnswer": "C",
+    "explanation": "**Choice C is correct.** The opening modifier, \"Assembled over seven decades from the quotation slips these readers mailed in,\" must describe the noun that comes right after the comma. Only the dictionary was assembled from slips, so \"the dictionary\" must begin the main clause.\n\n**The Full Solution:**\n- Ask what was \"assembled over seven decades from the quotation slips\": the dictionary.\n- A modifying phrase like this attaches to the subject that immediately follows it.\n- Choice C places \"the dictionary\" right after the comma, so the modifier describes the right thing.\n\n**Why the other choices are wrong:**\n- A: This makes \"the editors\" the thing assembled from quotation slips, which is illogical.\n- B: This puts the phrase \"completing the dictionary\" in the subject position, so the modifier describes an action rather than the dictionary.\n- D: \"There\" is not a noun the modifier can describe, so the opening phrase is left dangling.",
+    "difficulty": "hard",
+    "band": 4,
+    "skills": [
+     "form-structure-and-sense"
+    ],
+    "domain": "standard-english-conventions",
+    "passage": "The first edition of the great Oxford dictionary of English relied on volunteer readers, who copied out examples of words in use onto paper slips. Assembled over seven decades from the quotation slips these readers mailed in, ______.",
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "reading-writing",
+    "moduleIndex": 1,
+    "questionIndex": 5
+   },
+   {
+    "id": "rw-test9-module-2-952",
+    "type": "multiple-choice",
+    "stem": "Which choice completes the text with the most logical transition?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "Eventually,"
+     },
+     {
+      "id": "B",
+      "text": "However,"
+     },
+     {
+      "id": "C",
+      "text": "In other words,"
+     },
+     {
+      "id": "D",
+      "text": "In addition,"
+     }
+    ],
+    "correctAnswer": "A",
+    "explanation": "**Choice A is correct.** The text moves through time: gas lamps lit by hand, then the first electric street lights, then the spread of electric lighting and the end of the lamplighters' work. \"Eventually\" signals that the last development came after a period of time.\n\n**The Full Solution:**\n- First sentence: gas lamps and the lamplighters who lit them.\n- Second sentence: electric street lights begin to appear in some cities.\n- Third sentence: over time, electric lighting spreads and the lamplighters' work fades, a later stage in the same sequence.\n\n**Why the other choices are wrong:**\n- B: \"However\" signals a contrast, but the spread of electric lights continues the change the second sentence began.\n- C: \"In other words\" signals a restatement, but the last sentence describes a new, later development.\n- D: \"In addition\" adds a separate point, but the last sentence is the outcome of the change over time.",
+    "difficulty": "hard",
+    "band": 4,
+    "skills": [
+     "transitions"
+    ],
+    "domain": "expression-of-ideas",
+    "passage": "In the nineteenth century, many city streets were lit by gas lamps, and each evening lamplighters walked their routes, lighting every lamp by hand with a long pole. In the late 1800s, electric street lights began to appear in some cities. ______ electric lighting spread from city to city, and the work of the lamplighters dwindled away.",
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "reading-writing",
+    "moduleIndex": 1,
+    "questionIndex": 6
+   },
+   {
+    "id": "rw-test12-module-1-1227",
+    "type": "multiple-choice",
+    "stem": "Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "Butser Ancient Farm, an open-air archaeology site in Hampshire, England, was founded in 1972."
+     },
+     {
+      "id": "B",
+      "text": "Excavated Iron Age houses in Britain often survive only as rings of post holes left in the ground."
+     },
+     {
+      "id": "C",
+      "text": "Work at Butser Ancient Farm, an open-air archaeology site in Hampshire, England, has shaped how Iron Age settlements are pictured in books."
+     },
+     {
+      "id": "D",
+      "text": "Instead of studying only post holes, archaeologists at Butser build full-size roundhouses and test how they perform."
+     }
+    ],
+    "correctAnswer": "D",
+    "explanation": "**Choice D is correct.** The goal is to spotlight what was new about the METHOD used at Butser, and D is built around exactly that contrast: not post holes alone, but full-size houses built and tested.\n\n**The Full Solution:**\n- The notes say excavated Iron Age houses \"often survive only as rings of post holes.\"\n- At Butser, archaeologists instead \"build full-size roundhouses\" and \"record how the buildings hold up to weather and wear.\"\n- D states the older kind of evidence (post holes) and then the new practice (building and testing whole houses), which is what \"what was new about the method\" requires.\n\n**Why the other choices are wrong:**\n- A: It gives the site's location and founding date but says nothing about how the archaeologists work.\n- B: It describes the limited evidence that excavation leaves behind without mentioning Butser or its approach at all.\n- C: It reports the influence of the work at Butser, which is a result of the method, not the method itself.",
+    "difficulty": "hard",
+    "band": 4,
+    "skills": [
+     "rhetorical-synthesis"
+    ],
+    "domain": "expression-of-ideas",
+    "passage": null,
+    "passages": null,
+    "studentNotes": {
+     "intro": "While researching a topic, a student has taken the following notes:",
+     "bullets": [
+      "Butser Ancient Farm is an open-air archaeology site in Hampshire, England, founded in 1972.",
+      "Excavated Iron Age houses in Britain often survive only as rings of post holes in the ground.",
+      "At Butser, archaeologists build full-size roundhouses on the ground plans of excavated houses.",
+      "They then use the houses and record how the buildings hold up to weather and wear over many years.",
+      "This approach is known as experimental archaeology.",
+      "Work at Butser has shaped how Iron Age settlements are pictured in books."
+     ],
+     "goal": "The student wants to emphasize what was new about the method used at Butser."
+    },
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "reading-writing",
+    "moduleIndex": 1,
+    "questionIndex": 7
+   },
+   {
+    "id": "rw-test9-module-1-916",
+    "type": "multiple-choice",
+    "stem": "Which choice most logically completes the text?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "most nocturnals were made as ornamental gifts for wealthy patrons and were rarely, if ever, used to tell time."
+     },
+     {
+      "id": "B",
+      "text": "the nocturnal served as a working tool for navigators rather than as a curiosity for collectors."
+     },
+     {
+      "id": "C",
+      "text": "reading a nocturnal demanded formal training in astronomy that few sailors of the period possessed."
+     },
+     {
+      "id": "D",
+      "text": "nocturnals had displaced sundials as the most common timekeeping instruments of the sixteenth century."
+     }
+    ],
+    "correctAnswer": "B",
+    "explanation": "**Choice B is correct.** Each detail points the same way — toward practical use at sea — and B draws exactly that general conclusion, without going beyond it.\n\n**The Full Solution:**\n- Tide tables for ports matter to someone piloting a ship into harbor, not to someone displaying an ornament.\n- The instrument was explained in practical navigation manuals, the handbooks of working seamen.\n- Those manuals were written in everyday languages rather than scholarly Latin, implying an audience of ordinary practitioners.\n- The generalization these premises support is working use by navigators — precisely B.\n\n**Why the other choices are wrong:**\n- A: Tide tables and navigation manuals point to use, contradicting a picture of unused ornaments.\n- C: Manuals in everyday languages argue the opposite — the device was explained for readers without scholarly training.\n- D: The text never mentions sundials or compares the instruments' popularity; \"most common\" outruns the evidence entirely.",
+    "difficulty": "medium",
+    "band": 3,
+    "skills": [
+     "inferences"
+    ],
+    "domain": "information-and-ideas",
+    "passage": "A nocturnal is a small instrument, usually of brass or wood, that tells time at night from the rotation of the stars around the North Star. Some surviving nocturnals are engraved with tide tables for important ports, information of use mainly to someone bringing a ship into harbor. The instrument was also explained in practical navigation manuals of the sixteenth century, written in Spanish, English, and other everyday languages rather than in scholarly Latin. Taken together, these details suggest that ______",
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "reading-writing",
+    "moduleIndex": 1,
+    "questionIndex": 8
+   },
+   {
+    "id": "rw-test2-module-1-207",
+    "type": "multiple-choice",
+    "stem": "Which choice best describes the overall structure of the text?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "It presents a scholarly consensus about a class of artifacts, describes a discovery that unsettled it, and predicts which account will replace it."
+     },
+     {
+      "id": "B",
+      "text": "It describes puzzling artifacts, surveys proposed explanations of their function, identifies evidence that undercuts every proposal, and draws a general lesson."
+     },
+     {
+      "id": "C",
+      "text": "It recounts the excavation of a single unusual artifact, compares it with similar finds, and endorses its excavators' interpretation."
+     },
+     {
+      "id": "D",
+      "text": "It argues that a class of artifacts served a ceremonial purpose, concedes that the evidence is thin, and calls for further excavation."
+     }
+    ],
+    "correctAnswer": "B",
+    "explanation": "**Choice B is correct.** The text introduces the puzzling dodecahedra, lists candidate functions, shows why the same facts defeat each candidate, and ends with a general lesson about artifacts and understanding.\n\n**The Full Solution:**\n- Opening: the puzzling objects are described in physical detail — twelve-sided bronze shells with holes and knobs, found across the northwestern provinces.\n- Survey: three proposed functions are listed, from candlestick holder to knitting tool.\n- Frustration: \"every proposal stumbles on the same facts\" — inconsistent hole sizes, silence in texts and images, burial with coin hoards.\n- Close: the final sentence generalizes — possessing artifacts does not guarantee understanding them. Choice B tracks all four moves in order.\n\n**Why the other choices are wrong:**\n- A: There is no consensus to unsettle — the text presents ongoing uncertainty — and no recent discovery or predicted winner appears.\n- C: The text concerns more than a hundred objects, not a single excavation, and endorses no interpretation.\n- D: The text argues for no function at all, ceremonial or otherwise; the burial with coins is presented as an awkward fact, not a thesis, and no call for excavation is made.",
+    "difficulty": "hard",
+    "band": 4,
+    "skills": [
+     "text-structure-and-purpose"
+    ],
+    "domain": "craft-and-structure",
+    "passage": "More than a hundred small bronze objects of the same curious design have been found in the Roman Empire's northwestern provinces. Each is a hollow twelve-sided shell, with a round hole in every face and a knob at every corner. Proposed functions abound: candlestick holder, surveying instrument, tool for knitting gloves. Yet every proposal stumbles on the same facts. The holes vary in size with no consistent pattern, the objects appear in no surviving Roman text or image, and several were buried with hoards of coins, as if treasured rather than used. Until an example surfaces in a context that reveals its purpose, the dodecahedra will remain a reminder that possessing artifacts is not the same as understanding them.",
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "reading-writing",
+    "moduleIndex": 1,
+    "questionIndex": 9
+   },
+   {
+    "id": "math-test9-module-1-14",
+    "type": "multiple-choice",
+    "stem": "Renting a bike costs \\$36 plus \\$12 for each hour the bike is rented. Mia paid \\$228 to rent a bike. For how many hours did Mia rent the bike?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "$6$"
+     },
+     {
+      "id": "B",
+      "text": "$16$"
+     },
+     {
+      "id": "C",
+      "text": "$19$"
+     },
+     {
+      "id": "D",
+      "text": "$22$"
+     }
+    ],
+    "correctAnswer": "B",
+    "explanation": "**SAT Pattern: Word-to-Expression Translation**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Remove the fixed charge first: $228 - 36 = 192$, and $\\frac{192}{12} = 16$ hours.\n\n**The Full Solution:**\nStep 1: Let $h$ be the number of hours. The total cost is the fixed charge plus $12$ dollars per hour: $36 + 12h = 228$.\nStep 2: Subtract the fixed charge from both sides: $12h = 192$.\nStep 3: Divide by $12$: $h = 16$. Check: $36 + 12(16) = 36 + 192 = 228$ dollars ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($6$): uses $12$ as the fixed charge and $36$ as the hourly rate, computing $\\frac{228 - 12}{36} = 6$.\n* Choice C ($19$): divides the whole total by the hourly rate, $\\frac{228}{12} = 19$, as if there were no fixed charge.\n* Choice D ($22$): adds the fixed charge, $\\frac{228 + 36}{12} = 22$. The fixed charge is part of the $228$ dollars, so it must be subtracted.\n\n**Test Day Takeaway:** For a fixed charge plus a per-unit rate, subtract the fixed charge from the total before dividing by the rate.",
+    "difficulty": "medium",
+    "band": 5,
+    "skills": [
+     "word-problem-to-equation"
+    ],
+    "domain": "algebra",
+    "passage": null,
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "math",
+    "moduleIndex": 2,
+    "questionIndex": 0
+   },
+   {
+    "id": "math-test12-module-2-easy-7",
+    "type": "multiple-choice",
+    "stem": "The function $f$ is defined by $f(x) = 3x + c$, where $c$ is a constant. If $f(2) = 17$, what is the value of $f(6)$?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "$20$"
+     },
+     {
+      "id": "B",
+      "text": "$29$"
+     },
+     {
+      "id": "C",
+      "text": "$33$"
+     },
+     {
+      "id": "D",
+      "text": "$51$"
+     }
+    ],
+    "correctAnswer": "B",
+    "explanation": "**SAT Pattern: Function Evaluation**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $f(2) = 6 + c = 17$ gives $c = 11$, so $f(6) = 18 + 11 = 29$.\n\n**The Full Solution:**\nStep 1: Substitute $x = 2$: $f(2) = 3(2) + c = 6 + c$.\nStep 2: Set it equal to $17$: $6 + c = 17$, so $c = 11$ and $f(x) = 3x + 11$.\nStep 3: Evaluate at $x = 6$: $f(6) = 3(6) + 11 = 29$. Check: $f(2) = 3(2) + 11 = 17$, as given ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($20$): puts the input $2$ in place of the constant, computing $3(6) + 2$.\n* Choice C ($33$): finds $c = 17 - 2 = 15$ by subtracting the input rather than $3(2) = 6$, then computes $18 + 15$.\n* Choice D ($51$): multiplies $f(2)$ by $3$ because the input tripled. With a nonzero constant term, $f$ is not proportional.\n\n**Test Day Takeaway:** Use the given input-output pair to find the constant first, then evaluate. Outputs scale with inputs only when the constant term is $0$.",
+    "difficulty": "medium",
+    "band": 5,
+    "skills": [
+     "function-evaluation"
+    ],
+    "domain": "algebra",
+    "passage": null,
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "math",
+    "moduleIndex": 2,
+    "questionIndex": 1
+   },
+   {
+    "id": "math-test9-module-1-12",
+    "type": "multiple-choice",
+    "stem": "A bag contains $5$ red marbles and $n$ blue marbles. After one red marble is removed, one of the remaining marbles will be selected at random. The probability of selecting a red marble is $\\frac{1}{3}$. What is the value of $n$?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "$8$"
+     },
+     {
+      "id": "B",
+      "text": "$10$"
+     },
+     {
+      "id": "C",
+      "text": "$11$"
+     },
+     {
+      "id": "D",
+      "text": "$12$"
+     }
+    ],
+    "correctAnswer": "A",
+    "explanation": "**SAT Pattern: Probability Without Replacement**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** After the removal there are $4$ red marbles out of $4 + n$, so $\\frac{4}{4 + n} = \\frac{1}{3}$, which gives $4 + n = 12$ and $n = 8$.\n\n**The Full Solution:**\nStep 1: Removing one red marble leaves $4$ red marbles and $n$ blue marbles, or $4 + n$ marbles in all.\nStep 2: The probability of selecting a red marble is $\\frac{4}{4 + n}$, so $\\frac{4}{4 + n} = \\frac{1}{3}$.\nStep 3: Cross-multiply: $12 = 4 + n$, so $n = 8$. Check: with $4$ red and $8$ blue marbles, the probability of red is $\\frac{4}{12} = \\frac{1}{3}$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($10$): ignores the removed marble and solves $\\frac{5}{5 + n} = \\frac{1}{3}$.\n* Choice C ($11$): subtracts the removed marble from the total but still counts $5$ red marbles, solving $\\frac{5}{4 + n} = \\frac{1}{3}$.\n* Choice D ($12$): reports the number of marbles left in the bag, $4 + n$, instead of the number of blue marbles.\n\n**Test Day Takeaway:** When an item is removed before the selection, update both the favorable count and the total before writing the probability.",
+    "difficulty": "medium",
+    "band": 5,
+    "skills": [
+     "probability-basics"
+    ],
+    "domain": "problem-solving",
+    "passage": null,
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "math",
+    "moduleIndex": 2,
+    "questionIndex": 2
+   },
+   {
+    "id": "math-test7-module-2-easy-7",
+    "type": "multiple-choice",
+    "stem": "The price of a lamp at a store increased from $\\$28.50$ to $\\$34.20$. The price of a candle at the store, originally $\\$6.00$, increased by the same percent. What is the new price of the candle?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "$\\$4.80$"
+     },
+     {
+      "id": "B",
+      "text": "$\\$7.00$"
+     },
+     {
+      "id": "C",
+      "text": "$\\$7.20$"
+     },
+     {
+      "id": "D",
+      "text": "$\\$11.70$"
+     }
+    ],
+    "correctAnswer": "C",
+    "explanation": "**SAT Pattern: Percent Increase**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $34.20 \\div 28.50 = 1.20$, a $20\\%$ increase, so the candle's new price is $6.00(1.20) = \\$7.20$.\n\n**The Full Solution:**\nStep 1: The lamp's price rose by $34.20 - 28.50 = \\$5.70$. As a percent of the original price, that is $\\frac{5.70}{28.50} = 0.20$, or $20\\%$.\nStep 2: A $20\\%$ increase multiplies a price by $1.20$, so the candle's new price is $6.00(1.20)$.\nStep 3: $6.00(1.20) = \\$7.20$. Check: $20\\%$ of $\\$6.00$ is $\\$1.20$, and $6.00 + 1.20 = 7.20$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\$4.80$): applies the $20\\%$ as a decrease, computing $6.00(0.80)$.\n* Choice B ($\\$7.00$): divides the $\\$5.70$ increase by the new price $\\$34.20$ instead of the original $\\$28.50$, getting about $16.7\\%$, and $6.00(1.1\\overline{6}) = 7.00$.\n* Choice D ($\\$11.70$): adds the $\\$5.70$ dollar increase to the candle's price. Equal percent increases are not equal dollar increases.\n\n**Test Day Takeaway:** Percent change is measured against the original amount; turn it into a multiplier once, then apply that multiplier to the second price.",
+    "difficulty": "medium",
+    "band": 5,
+    "skills": [
+     "percent-of-value",
+     "percent-change"
+    ],
+    "domain": "problem-solving",
+    "passage": null,
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "math",
+    "moduleIndex": 2,
+    "questionIndex": 3
+   },
+   {
+    "id": "math-test6-module-2-5",
+    "type": "multiple-choice",
+    "stem": "$y = 2x^{2} + 8x + c$\nIn the given equation, $c$ is a constant. The graph of the equation in the $xy$-plane has no x-intercepts. Which of the following must be true?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "$c < 8$"
+     },
+     {
+      "id": "B",
+      "text": "$c = 8$"
+     },
+     {
+      "id": "C",
+      "text": "$c > 8$"
+     },
+     {
+      "id": "D",
+      "text": "$c > 32$"
+     }
+    ],
+    "correctAnswer": "C",
+    "explanation": "**SAT Pattern: Discriminant Analysis**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** No x-intercepts means $b^{2} - 4ac < 0$: $64 - 8c < 0$, so $c > 8$.\n\n**The Full Solution:**\nStep 1: The graph meets the x-axis where $2x^{2} + 8x + c = 0$. No x-intercepts means this equation has no real solutions.\nStep 2: A quadratic equation has no real solutions exactly when its discriminant is negative: $8^{2} - 4(2)(c) = 64 - 8c < 0$.\nStep 3: Add $8c$ to both sides and divide by $8$: $64 < 8c$, so $c > 8$. Check: $c = 10$ gives $64 - 80 = -16 < 0$, and $c = 6$ gives $64 - 48 = 16 > 0$, two x-intercepts ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($c < 8$): reverses the inequality; $c = 6$ makes the discriminant positive, so the graph crosses the x-axis twice.\n* Choice B ($c = 8$): is the boundary case, where the discriminant is $0$ and the graph touches the x-axis once.\n* Choice D ($c > 32$): drops the $4$ from $4ac$ and solves $64 - 2c < 0$; it is not a must-be-true statement, since $c = 10$ works but is not greater than $32$.\n\n**Test Day Takeaway:** Translate x-intercepts into the discriminant: none means negative, one means zero, two means positive, and keep the $4$ in $4ac$.",
+    "difficulty": "medium",
+    "band": 6,
+    "skills": [
+     "discriminant-analysis"
+    ],
+    "domain": "advanced-math",
+    "passage": null,
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "math",
+    "moduleIndex": 2,
+    "questionIndex": 4
+   },
+   {
+    "id": "math-test9-module-1-13",
+    "type": "multiple-choice",
+    "stem": "$a(2x + 5) - 3(x - 4) = 7x + b$\nIn the given equation, $a$ and $b$ are constants. If the equation has infinitely many solutions, what is the value of $b$?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "$5$"
+     },
+     {
+      "id": "B",
+      "text": "$13$"
+     },
+     {
+      "id": "C",
+      "text": "$37$"
+     },
+     {
+      "id": "D",
+      "text": "$42$"
+     }
+    ],
+    "correctAnswer": "C",
+    "explanation": "**SAT Pattern: Matching Coefficients**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** The left side expands to $(2a - 3)x + (5a + 12)$, so $2a - 3 = 7$ gives $a = 5$, and then $b = 5(5) + 12 = 37$.\n\n**The Full Solution:**\nStep 1: Expand the left side: $a(2x + 5) - 3(x - 4) = 2ax + 5a - 3x + 12$, which groups as $(2a - 3)x + (5a + 12)$.\nStep 2: An equation of this form has infinitely many solutions only when both sides are the same expression, so the $x$-coefficients match, $2a - 3 = 7$, giving $a = 5$.\nStep 3: The constants must also match: $b = 5a + 12 = 5(5) + 12 = 37$. Check with $x = 0$: the left side is $5(5) - 3(-4) = 25 + 12 = 37$ and the right side is $7(0) + 37 = 37$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($5$): this is the value of $a$, an intermediate result. The question asks for $b$.\n* Choice B ($13$): distributes $-3(x - 4)$ as $-3x - 12$. The product of $-3$ and $-4$ is $+12$.\n* Choice D ($42$): adds the two constants, $5 + 37$, instead of reporting $b$ alone.\n\n**Test Day Takeaway:** A linear equation has infinitely many solutions when both sides are identical; expand, then match the $x$-coefficients and the constants separately.",
+    "difficulty": "medium",
+    "band": 5,
+    "skills": [
+     "distributive-property"
+    ],
+    "domain": "advanced-math",
+    "passage": null,
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "math",
+    "moduleIndex": 2,
+    "questionIndex": 5
+   },
+   {
+    "id": "math-test8-module-1-7",
+    "type": "multiple-choice",
+    "stem": "$y = x^{2} - 6x + 11$\n$y = 2x + c$\nIn the given system of equations, $c$ is a constant. The graphs of the equations intersect at exactly one point. What is the value of $c$?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "$-5$"
+     },
+     {
+      "id": "B",
+      "text": "$2$"
+     },
+     {
+      "id": "C",
+      "text": "$5$"
+     },
+     {
+      "id": "D",
+      "text": "$7$"
+     }
+    ],
+    "correctAnswer": "A",
+    "explanation": "**SAT Pattern: Tangent Line and Discriminant**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** Setting the two expressions for $y$ equal gives $x^{2} - 8x + (11 - c) = 0$, and exactly one intersection point means the discriminant is $0$: $64 - 4(11 - c) = 0$, so $c = -5$.\n\n**The Full Solution:**\nStep 1: Substitute $2x + c$ for $y$ in the first equation: $2x + c = x^{2} - 6x + 11$. Rearrange: $x^{2} - 8x + (11 - c) = 0$.\nStep 2: The graphs intersect at exactly one point when this quadratic has exactly one real root, so its discriminant is $0$: $(-8)^{2} - 4(1)(11 - c) = 0$.\nStep 3: Solve: $64 - 44 + 4c = 0$, so $4c = -20$ and $c = -5$. Check: with $c = -5$ the quadratic is $x^{2} - 8x + 16 = (x - 4)^{2}$, with the single root $x = 4$; both equations give $y = 3$ there, since $16 - 24 + 11 = 3$ and $2(4) - 5 = 3$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($2$): uses $-6$ as the $x$-coefficient without subtracting $2x$. Then $36 - 4(11 - c) = 0$ gives $c = 2$, but the line $y = 2x + 2$ crosses the parabola twice.\n* Choice C ($5$): reaches $4c = -20$ correctly and then loses the negative sign.\n* Choice D ($7$): combines $-6x - 2x$ as $-4x$. Then $16 - 4(11 - c) = 0$ gives $c = 7$.\n\n**Test Day Takeaway:** A line and a parabola with exactly one point in common give a combined quadratic with discriminant $0$. Collect the $x$-terms carefully before you square the coefficient.",
+    "difficulty": "medium",
+    "band": 5,
+    "skills": [
+     "tangent-lines",
+     "discriminant-analysis"
+    ],
+    "domain": "geometry",
+    "passage": null,
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "math",
+    "moduleIndex": 2,
+    "questionIndex": 6
+   },
+   {
+    "id": "math-test8-module-2-8",
+    "type": "multiple-choice",
+    "stem": "$(x - 12)^2 + (y + 5)^2 = r^2$\nThe point $(20, 1)$ lies on the circle in the $xy$-plane defined by the given equation, where $r$ is a positive constant. What is the value of $r$?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "$10$"
+     },
+     {
+      "id": "B",
+      "text": "$14$"
+     },
+     {
+      "id": "C",
+      "text": "$20$"
+     },
+     {
+      "id": "D",
+      "text": "$100$"
+     }
+    ],
+    "correctAnswer": "A",
+    "explanation": "**SAT Pattern: Circle in Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Substitute the point: $(20 - 12)^2 + (1 + 5)^2 = 64 + 36 = 100 = r^2$, so $r = 10$.\n\n**The Full Solution:**\nStep 1: In $(x - h)^2 + (y - k)^2 = r^2$, the center is $(h, k)$ and the radius is $r$, so this circle has center $(12, -5)$.\nStep 2: Any point on the circle satisfies the equation. Substituting $(20, 1)$: $(20 - 12)^2 + (1 + 5)^2 = 8^2 + 6^2 = 64 + 36 = 100$.\nStep 3: So $r^2 = 100$, and since $r > 0$, $r = 10$. Check: the distance from $(12, -5)$ to $(20, 1)$ is $\\sqrt{8^2 + 6^2} = 10$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($14$): adds the horizontal distance $8$ and the vertical distance $6$; the radius is the straight-line distance, $\\sqrt{8^2 + 6^2}$.\n* Choice C ($20$): this is the diameter of the circle, $2r$.\n* Choice D ($100$): this is $r^2$, the right side of the equation, not $r$.\n\n**Test Day Takeaway:** A point on a circle satisfies its equation, so substitute the point to get $r^2$ directly, then take the positive square root.",
+    "difficulty": "medium",
+    "band": 5,
+    "skills": [
+     "circle-equation"
+    ],
+    "domain": "geometry",
+    "passage": null,
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "math",
+    "moduleIndex": 2,
+    "questionIndex": 7
+   },
+   {
+    "id": "math-test5-module-1-8",
+    "type": "fill-in",
+    "stem": "The function $f$ is defined by $f(x) = 540 - 24x$. What is the value of $x$ for which $f(x) = 156$?",
+    "choices": null,
+    "correctAnswer": "16",
+    "explanation": "**SAT Pattern: Solve $f(a) = c$**\n\n**The correct answer is $16$.**\n\n**The Fast Way (~15s):** Set $540 - 24x = 156$; then $24x = 384$, so $x = 16$.\n\n**The Full Solution:**\nStep 1: The question gives an output of $f$, not an input, so set the expression for $f(x)$ equal to $156$: $540 - 24x = 156$.\nStep 2: Subtract $540$ from both sides: $-24x = -384$.\nStep 3: Divide both sides by $-24$: $x = 16$. Check: $f(16) = 540 - 24(16) = 540 - 384 = 156$ ✓\n\n**Common Mistakes:**\n* $29$: adds $156$ to $540$ instead of subtracting, solving $24x = 696$.\n* $6.5$: divides $156$ by $24$, ignoring the constant term $540$.\n* $22.5$: divides $540$ by $24$, which is the value of $x$ for which $f(x) = 0$, not $f(x) = 156$.\n\n**Test Day Takeaway:** \"For which $f(x) = c$\" means the output is known: set the rule equal to $c$ and solve for $x$; do not substitute $c$ in for $x$.",
+    "difficulty": "medium",
+    "band": 5,
+    "skills": [
+     "function-notation"
+    ],
+    "domain": "algebra",
+    "passage": null,
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "math",
+    "moduleIndex": 2,
+    "questionIndex": 8
+   },
+   {
+    "id": "math-test8-module-2-13",
+    "type": "fill-in",
+    "stem": "$g(x) = f(x - k) + 3$\nThe function $g$ is defined by the given equation, where $k$ is a constant. The maximum value of $f$ occurs at $x = 18$, and the maximum value of $g$ occurs at $x = 26$. What is the value of $k$?",
+    "choices": null,
+    "correctAnswer": "8",
+    "explanation": "**SAT Pattern: Function Transformation**\n\n**The correct answer is 8.**\n\n**The Fast Way (~20s):** Replacing $x$ with $x - k$ shifts the graph $k$ units right, and the $+3$ moves it only up, so $18 + k = 26$ and $k = 8$.\n\n**The Full Solution:**\nStep 1: The graph of $y = f(x - k)$ is the graph of $y = f(x)$ shifted $k$ units to the right. Adding $3$ shifts it up, which does not change where the maximum occurs horizontally.\nStep 2: So the maximum of $g$ occurs at $x = 18 + k$.\nStep 3: Set $18 + k = 26$: $k = 8$. Check: $g(26) = f(26 - 8) + 3 = f(18) + 3$, the largest value $f$ takes, plus $3$ ✓\n\n**Common Mistakes:**\n* $-8$: shifts the graph the wrong way, reading $f(x - k)$ as a shift of $k$ units to the left.\n* $44$: adds the two locations, $18 + 26$, instead of finding the distance between them.\n* $11$: adds the vertical shift $3$ to the horizontal shift of $8$; the $+3$ moves the maximum up, not sideways.\n\n**Test Day Takeaway:** Inside the function, $x - k$ moves a graph right by $k$; outside, $+c$ moves it up by $c$. Track horizontal and vertical shifts separately.",
+    "difficulty": "medium",
+    "band": 5,
+    "skills": [
+     "function-transformations",
+     "vertex-form"
+    ],
+    "domain": "algebra",
+    "passage": null,
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "math",
+    "moduleIndex": 2,
+    "questionIndex": 9
+   },
+   {
+    "id": "math-test12-module-2-5",
+    "type": "multiple-choice",
+    "stem": "The population of a town is modeled by $P = 34{,}600 - 1{,}200t$, where $t$ is the number of years after $2018$. Which of the following equations represents the population of the town in terms of $w$, the number of years after $2023$?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "$P = 28{,}600 - 1{,}200w$"
+     },
+     {
+      "id": "B",
+      "text": "$P = 28{,}600 + 1{,}200w$"
+     },
+     {
+      "id": "C",
+      "text": "$P = 34{,}600 - 1{,}200w$"
+     },
+     {
+      "id": "D",
+      "text": "$P = 40{,}600 - 1{,}200w$"
+     }
+    ],
+    "correctAnswer": "A",
+    "explanation": "**SAT Pattern: Slope-Intercept Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** The rate stays $-1{,}200$ per year; only the starting value moves. In $2023$, $t = 5$, so $P = 34{,}600 - 1{,}200(5) = 28{,}600$, and the new model is $P = 28{,}600 - 1{,}200w$.\n\n**The Full Solution:**\nStep 1: The year $2023$ is $5$ years after $2018$, so $t = w + 5$.\nStep 2: Substitute: $P = 34{,}600 - 1{,}200(w + 5) = 34{,}600 - 1{,}200w - 6{,}000$.\nStep 3: Combine the constants: $P = 28{,}600 - 1{,}200w$. Check the year $2025$: the original model with $t = 7$ gives $34{,}600 - 8{,}400 = 26{,}200$, and the new model with $w = 2$ gives $28{,}600 - 2{,}400 = 26{,}200$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($P = 28{,}600 + 1{,}200w$): has the correct starting value but makes the population grow instead of shrink.\n* Choice C ($P = 34{,}600 - 1{,}200w$): only renames $t$ as $w$; it still gives the $2018$ population when $w = 0$.\n* Choice D ($P = 40{,}600 - 1{,}200w$): adds the $6{,}000$ that five years of decline removes.\n\n**Test Day Takeaway:** Shifting the starting year changes the intercept, not the slope; evaluate the original model at the new starting year to get the new intercept.",
+    "difficulty": "hard",
+    "band": 7,
+    "skills": [
+     "slope-intercept-form"
+    ],
+    "domain": "algebra",
+    "passage": null,
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "math",
+    "moduleIndex": 3,
+    "questionIndex": 0
+   },
+   {
+    "id": "math-test11-module-2-easy-18",
+    "type": "multiple-choice",
+    "stem": "$\\frac{2}{3}(6x - 9) + 4 = \\frac{1}{2}(10x + 2) - 11$\nWhat is the solution to the given equation?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "$-8$"
+     },
+     {
+      "id": "B",
+      "text": "$5$"
+     },
+     {
+      "id": "C",
+      "text": "$7$"
+     },
+     {
+      "id": "D",
+      "text": "$8$"
+     }
+    ],
+    "correctAnswer": "D",
+    "explanation": "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** Distributing gives $4x - 6 + 4 = 5x + 1 - 11$, or $4x - 2 = 5x - 10$, so $x = 8$.\n\n**The Full Solution:**\nStep 1: Distribute on each side: $\\frac{2}{3}(6x - 9) = 4x - 6$ and $\\frac{1}{2}(10x + 2) = 5x + 1$, so the equation becomes $4x - 6 + 4 = 5x + 1 - 11$.\nStep 2: Combine constants: $4x - 2 = 5x - 10$.\nStep 3: Subtract $4x$ and add $10$ to both sides: $8 = x$. Check: the left side is $\\frac{2}{3}(39) + 4 = 26 + 4 = 30$ and the right side is $\\frac{1}{2}(82) - 11 = 41 - 11 = 30$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($-8$): gets $-x = -8$ and then writes $x = -8$, changing the sign of only one side.\n* Choice B ($5$): multiplies only $6x$ by $\\frac{2}{3}$, leaving the $-9$ unchanged, so the left side becomes $4x - 5$.\n* Choice C ($7$): multiplies only $10x$ by $\\frac{1}{2}$, leaving the $+2$ unchanged, so the right side becomes $5x - 9$.\n\n**Test Day Takeaway:** Distribute a fraction to every term inside the parentheses, then combine constants before moving terms; check by substituting into the original equation.",
+    "difficulty": "hard",
+    "band": 7,
+    "skills": [
+     "solving-equations"
+    ],
+    "domain": "algebra",
+    "passage": null,
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "math",
+    "moduleIndex": 3,
+    "questionIndex": 1
+   },
+   {
+    "id": "math-test2-module-2-3",
+    "type": "multiple-choice",
+    "stem": "The table shows the number of students in three grades at a school who chose each of three after-school activities. One of these students will be selected at random. What is the probability of selecting a student who chose music, given that the student is not in grade $9$?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "$\\frac{3}{13}$"
+     },
+     {
+      "id": "B",
+      "text": "$\\frac{19}{80}$"
+     },
+     {
+      "id": "C",
+      "text": "$\\frac{3}{8}$"
+     },
+     {
+      "id": "D",
+      "text": "$\\frac{3}{5}$"
+     }
+    ],
+    "correctAnswer": "C",
+    "explanation": "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice C is correct.**\n\n**The Fast Way (~35s):** Students not in grade $9$ are in grades $10$ and $11$: $104 + 56 = 160$ students, and $38 + 22 = 60$ of them chose music. The probability is $\\frac{60}{160} = \\frac{3}{8}$.\n\n**The Full Solution:**\nStep 1: The condition \"not in grade $9$\" restricts the group to grades $10$ and $11$, so the denominator is $104 + 56 = 160$, not $260$.\nStep 2: Within that group, count the students who chose music: $38$ in grade $10$ and $22$ in grade $11$, for $60$ students.\nStep 3: Divide: $\\frac{60}{160} = \\frac{3}{8}$. Check: the music students outside grade $9$ are $100 - 40 = 60$, matching Step 2 ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($\\frac{3}{13}$): counts the numerator correctly as $60$ but divides by the grand total, $260$. A conditional probability uses only the students who meet the condition.\n* Choice B ($\\frac{19}{80}$): uses the right denominator, $160$, but counts only grade $10$'s $38$ music students. \"Not in grade $9$\" includes grade $11$ as well.\n* Choice D ($\\frac{3}{5}$): computes $\\frac{60}{100}$, the probability that a student is not in grade $9$ given that the student chose music. That reverses the condition.\n\n**Test Day Takeaway:** In a conditional probability, write the denominator first: it is the total of the group named after \"given that.\" Then count the part of that group the question asks about.",
+    "difficulty": "hard",
+    "band": 7,
+    "skills": [
+     "conditional-probability",
+     "two-way-table"
+    ],
+    "domain": "problem-solving",
+    "passage": null,
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": {
+     "headers": [
+      "Grade",
+      "Art",
+      "Music",
+      "Sports",
+      "Total"
+     ],
+     "rows": [
+      {
+       "__fsNestedArray": [
+        "$9$",
+        "$26$",
+        "$40$",
+        "$34$",
+        "$100$"
+       ]
+      },
+      {
+       "__fsNestedArray": [
+        "$10$",
+        "$31$",
+        "$38$",
+        "$35$",
+        "$104$"
+       ]
+      },
+      {
+       "__fsNestedArray": [
+        "$11$",
+        "$17$",
+        "$22$",
+        "$17$",
+        "$56$"
+       ]
+      },
+      {
+       "__fsNestedArray": [
+        "Total",
+        "$74$",
+        "$100$",
+        "$86$",
+        "$260$"
+       ]
+      }
+     ]
+    },
+    "questionFormula": null,
+    "section": "math",
+    "moduleIndex": 3,
+    "questionIndex": 2
+   },
+   {
+    "id": "math-test1-module-2-22",
+    "type": "multiple-choice",
+    "stem": "The table shows the distribution of the number of goals a soccer team scored in each of its $26$ games last season. What is the median number of goals the team scored per game?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "$2$"
+     },
+     {
+      "id": "B",
+      "text": "$2.5$"
+     },
+     {
+      "id": "C",
+      "text": "$3$"
+     },
+     {
+      "id": "D",
+      "text": "$5$"
+     }
+    ],
+    "correctAnswer": "B",
+    "explanation": "**SAT Pattern: Median Calculation**\n\n**Choice B is correct.**\n\n**The Fast Way (~45s):** With $26$ games, the median is the mean of the $13$th and $14$th values. The running totals $5$, $13$, $17$ put the $13$th value at $2$ goals and the $14$th at $3$ goals, so the median is $2.5$.\n\n**The Full Solution:**\nStep 1: The number of games is $5 + 8 + 4 + 6 + 3 = 26$, an even number, so the median is the mean of the $13$th and $14$th values when the data are listed in order.\nStep 2: List cumulatively: games $1$ through $5$ had $1$ goal, games $6$ through $13$ had $2$ goals, and games $14$ through $17$ had $3$ goals. So the $13$th value is $2$ and the $14$th value is $3$.\nStep 3: The median is $\\frac{2 + 3}{2} = 2.5$. Check: $13$ values are $2$ or fewer and $13$ values are $3$ or more, so $2.5$ splits the data in half ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($2$): this is the mode, the number of goals with the most games, not the median.\n* Choice C ($3$): uses only the $14$th value instead of the mean of the $13$th and $14$th values.\n* Choice D ($5$): finds the median of the frequency column, $3$, $4$, $5$, $6$, $8$, instead of the median of the goals.\n\n**Test Day Takeaway:** In a frequency table, the median comes from the data values, not the frequencies. Find the middle position from the total count, then use running totals to locate it.",
+    "difficulty": "hard",
+    "band": 7,
+    "skills": [
+     "find-median"
+    ],
+    "domain": "problem-solving",
+    "passage": null,
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": {
+     "type": "dataTable",
+     "params": {
+      "headers": [
+       "Goals scored",
+       "Number of games"
+      ],
+      "rows": [
+       {
+        "__fsNestedArray": [
+         "1",
+         "5"
+        ]
+       },
+       {
+        "__fsNestedArray": [
+         "2",
+         "8"
+        ]
+       },
+       {
+        "__fsNestedArray": [
+         "3",
+         "4"
+        ]
+       },
+       {
+        "__fsNestedArray": [
+         "4",
+         "6"
+        ]
+       },
+       {
+        "__fsNestedArray": [
+         "5",
+         "3"
+        ]
+       }
+      ]
+     }
+    },
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "math",
+    "moduleIndex": 3,
+    "questionIndex": 3
+   },
+   {
+    "id": "math-test11-module-2-4",
+    "type": "multiple-choice",
+    "stem": "The function $P$ gives a bakery's daily profit, in dollars, from selling $x$ cakes, where $P(x) = -3x^{2} + 165x - 1{,}800$. On one day, the bakery's profit was $\\$72$. What is the least possible number of cakes the bakery sold that day?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "$15$"
+     },
+     {
+      "id": "B",
+      "text": "$16$"
+     },
+     {
+      "id": "C",
+      "text": "$39$"
+     },
+     {
+      "id": "D",
+      "text": "$40$"
+     }
+    ],
+    "correctAnswer": "B",
+    "explanation": "**SAT Pattern: Quadratic via Factoring**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Set $-3x^{2} + 165x - 1{,}800 = 72$ and divide by $-3$: $x^{2} - 55x + 624 = 0$, so $(x - 16)(x - 39) = 0$. The lesser solution is $16$.\n\n**The Full Solution:**\nStep 1: A profit of $\\$72$ means $P(x) = 72$: $-3x^{2} + 165x - 1{,}800 = 72$.\nStep 2: Subtract $72$ from both sides: $-3x^{2} + 165x - 1{,}872 = 0$. Divide every term by $-3$: $x^{2} - 55x + 624 = 0$.\nStep 3: Find two numbers with product $624$ and sum $55$: $16$ and $39$. So $(x - 16)(x - 39) = 0$, and $x = 16$ or $x = 39$.\nStep 4: The least possible number of cakes is $16$. Check: $P(16) = -3(256) + 165(16) - 1{,}800 = -768 + 2{,}640 - 1{,}800 = 72$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice A ($15$): solves $P(x) = 0$ instead of $P(x) = 72$; at $15$ cakes the profit is $\\$0$.\n* Choice C ($39$): also gives a profit of $\\$72$, but it is the greater solution, not the least.\n* Choice D ($40$): the larger solution of $P(x) = 0$, where the profit is $\\$0$.\n\n**Test Day Takeaway:** When a model's output is given, set the function equal to that value, move everything to one side, and factor; then read which solution the question asks for.",
+    "difficulty": "hard",
+    "band": 7,
+    "skills": [
+     "finding-roots-factoring"
+    ],
+    "domain": "advanced-math",
+    "passage": null,
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "math",
+    "moduleIndex": 3,
+    "questionIndex": 4
+   },
+   {
+    "id": "math-test2-module-1-17",
+    "type": "multiple-choice",
+    "stem": "$f(x) = -4x^{2} + 24x + c$\nThe function $f$ is defined by the given equation, where $c$ is a constant. The maximum value of $f(x)$ is $41$. What is the value of $f(0)$?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "$5$"
+     },
+     {
+      "id": "B",
+      "text": "$32$"
+     },
+     {
+      "id": "C",
+      "text": "$41$"
+     },
+     {
+      "id": "D",
+      "text": "$149$"
+     }
+    ],
+    "correctAnswer": "A",
+    "explanation": "**SAT Pattern: Vertex Form Maximum**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** The vertex is at $x = -\\frac{24}{2(-4)} = 3$, and $f(3) = -36 + 72 + c = 36 + c = 41$, so $c = 5$; since $f(0) = c$, the answer is $5$.\n\n**The Full Solution:**\nStep 1: The coefficient of $x^2$ is negative, so the graph opens downward and the maximum occurs at the vertex, $x = -\\frac{b}{2a} = -\\frac{24}{2(-4)} = 3$.\nStep 2: The maximum value is $f(3) = -4(9) + 24(3) + c = 36 + c$. Setting $36 + c = 41$ gives $c = 5$.\nStep 3: Then $f(0) = -4(0)^2 + 24(0) + 5 = 5$. Check: in vertex form $f(x) = -4(x - 3)^2 + 41$, and $f(0) = -4(9) + 41 = 5$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($32$): completes the square without factoring out $-4$, treating the vertex value as $9 + c$ instead of $36 + c$, which gives $c = 32$.\n* Choice C ($41$): reports the maximum value as $f(0)$. The graph reaches $41$ at $x = 3$, not at $x = 0$.\n* Choice D ($149$): drops the negative sign in $-\\frac{b}{2a}$, puts the vertex at $x = -3$, and solves $-36 - 72 + c = 41$ to get $c = 149$.\n\n**Test Day Takeaway:** For $f(x) = ax^2 + bx + c$, the value $f(0)$ is just $c$; find $c$ by evaluating $f$ at the vertex $x = -\\frac{b}{2a}$ and setting that equal to the given maximum.",
+    "difficulty": "hard",
+    "band": 7,
+    "skills": [
+     "converting-quadratic-forms"
+    ],
+    "domain": "advanced-math",
+    "passage": null,
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "math",
+    "moduleIndex": 3,
+    "questionIndex": 5
+   },
+   {
+    "id": "math-test9-module-1-20",
+    "type": "multiple-choice",
+    "stem": "In right triangle $JKL$, angle $K$ is the right angle and $\\tan J = \\frac{2}{5}$. What is the value of $\\cos L$?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "$\\frac{2}{\\sqrt{29}}$"
+     },
+     {
+      "id": "B",
+      "text": "$\\frac{5}{\\sqrt{29}}$"
+     },
+     {
+      "id": "C",
+      "text": "$\\frac{5}{2}$"
+     },
+     {
+      "id": "D",
+      "text": "$\\frac{\\sqrt{29}}{2}$"
+     }
+    ],
+    "correctAnswer": "A",
+    "explanation": "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** $\\tan J = \\frac{2}{5}$ makes the legs $2$ and $5$ and the hypotenuse $\\sqrt{29}$; the leg adjacent to angle $L$ is the one opposite angle $J$, so $\\cos L = \\frac{2}{\\sqrt{29}}$.\n\n**The Full Solution:**\nStep 1: The right angle is at $K$, so $\\overline{JL}$ is the hypotenuse. $\\tan J = \\frac{KL}{JK} = \\frac{2}{5}$, so take $KL = 2$ and $JK = 5$.\nStep 2: Find the hypotenuse: $JL = \\sqrt{2^{2} + 5^{2}} = \\sqrt{29}$.\nStep 3: For angle $L$, the adjacent leg is $KL = 2$, so $\\cos L = \\frac{KL}{JL} = \\frac{2}{\\sqrt{29}}$. Check: $\\sin J = \\frac{KL}{JL} = \\frac{2}{\\sqrt{29}}$ too, as it must, since $J$ and $L$ are complementary ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($\\frac{5}{\\sqrt{29}}$): uses $JK = 5$, the leg opposite angle $L$. That ratio is $\\sin L$.\n* Choice C ($\\frac{5}{2}$): this is $\\tan L$, a ratio of the two legs; a cosine uses the hypotenuse.\n* Choice D ($\\frac{\\sqrt{29}}{2}$): puts the hypotenuse on top. A cosine of an acute angle is less than $1$.\n\n**Test Day Takeaway:** Label the sides from the given ratio, find the hypotenuse, then read the new ratio from the other acute angle's point of view; the sine of one acute angle equals the cosine of the other.",
+    "difficulty": "hard",
+    "band": 7,
+    "skills": [
+     "soh-cah-toa",
+     "pythagorean-theorem"
+    ],
+    "domain": "geometry",
+    "passage": null,
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "math",
+    "moduleIndex": 3,
+    "questionIndex": 6
+   },
+   {
+    "id": "math-test1-module-1-16",
+    "type": "multiple-choice",
+    "stem": "The points $(-3, 1)$, $(5, -3)$, and $(4, 6)$ shown in the $xy$-plane are the vertices of a triangle. What is the area, in square units, of the triangle?",
+    "choices": [
+     {
+      "id": "A",
+      "text": "$34$"
+     },
+     {
+      "id": "B",
+      "text": "$38$"
+     },
+     {
+      "id": "C",
+      "text": "$68$"
+     },
+     {
+      "id": "D",
+      "text": "$72$"
+     }
+    ],
+    "correctAnswer": "A",
+    "explanation": "**SAT Pattern: Area of Triangle from Coordinates**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** Enclose the triangle in the rectangle from $x = -3$ to $x = 5$ and $y = -3$ to $y = 6$, area $8(9) = 72$, then remove the three corner right triangles of areas $17.5$, $4.5$, and $16$: $72 - 38 = 34$ square units.\n\n**The Full Solution:**\nStep 1: Draw the smallest rectangle with horizontal and vertical sides that contains all three vertices. Its sides lie on $x = -3$, $x = 5$, $y = -3$, and $y = 6$, so its area is $8 \\times 9 = 72$ square units.\nStep 2: The rectangle minus the triangle leaves three right triangles at the corners. Their legs are $7$ and $5$, giving $17.5$; $1$ and $9$, giving $4.5$; and $8$ and $4$, giving $16$. Together they cover $17.5 + 4.5 + 16 = 38$ square units.\nStep 3: Subtract: $72 - 38 = 34$ square units. Check with the coordinate formula $\\frac{1}{2}\\left|x_{1}(y_{2} - y_{3}) + x_{2}(y_{3} - y_{1}) + x_{3}(y_{1} - y_{2})\\right| = \\frac{1}{2}|27 + 25 + 16| = 34$ ✓\n\n**Why the wrong answers are tempting:**\n* Choice B ($38$): boxes the triangle correctly but reports the combined area of the three corner right triangles, $17.5 + 4.5 + 16 = 38$. That is the part of the rectangle outside the triangle, so it must be subtracted from $72$.\n* Choice C ($68$): stops at the absolute value $|27 + 25 + 16| = 68$ and never applies the factor $\\frac{1}{2}$.\n* Choice D ($72$): gives the area of the enclosing rectangle rather than the triangle inside it.\n\n**Test Day Takeaway:** When no side of a coordinate triangle is horizontal or vertical, box it in and subtract the corner right triangles; the boxed rectangle is always an upper bound, so an answer equal to it is wrong by construction.",
+    "difficulty": "hard",
+    "band": 7,
+    "skills": [
+     "triangle-area"
+    ],
+    "domain": "geometry",
+    "passage": null,
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": {
+     "type": "coordinatePoints",
+     "params": {
+      "points": [
+       {
+        "__fsNestedArray": [
+         -3,
+         1
+        ]
+       },
+       {
+        "__fsNestedArray": [
+         5,
+         -3
+        ]
+       },
+       {
+        "__fsNestedArray": [
+         4,
+         6
+        ]
+       }
+      ],
+      "xMin": -5,
+      "xMax": 7,
+      "yMin": -5,
+      "yMax": 8
+     }
+    },
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "math",
+    "moduleIndex": 3,
+    "questionIndex": 7
+   },
+   {
+    "id": "math-test5-module-2-easy-21",
+    "type": "fill-in",
+    "stem": "Water is pumped into a tank at a constant rate. The table shows the volume of water in the tank at three times after the pump was turned on. How many gallons of water were in the tank when the pump was turned on?",
+    "choices": null,
+    "correctAnswer": "148",
+    "explanation": "**SAT Pattern: Slope from Two Points**\n\n**The correct answer is $148$.**\n\n**The Fast Way (~35s):** The rate is $\\frac{302 - 214}{14 - 6} = 11$ gallons per minute, so at time $0$ the tank held $214 - 6(11) = 148$ gallons.\n\n**The Full Solution:**\nStep 1: A constant rate means the volume is a linear function of time. Use two rows to find the rate: $\\frac{302 - 214}{14 - 6} = \\frac{88}{8} = 11$ gallons per minute.\nStep 2: The pump was turned on $6$ minutes before the first row, so subtract $6$ minutes of pumping from that row: $214 - 6(11) = 214 - 66 = 148$.\nStep 3: Check the third row from this start: $148 + 22(11) = 148 + 242 = 390$ gallons ✓\n\n**Common Mistakes:**\n* $203$: subtracts only one minute of pumping, $214 - 11$, which is the volume at $5$ minutes, not $0$ minutes.\n* $214$: reports the first value in the table, treating $6$ minutes as the moment the pump was turned on.\n* $82$: divides the $88$-gallon rise by $4$ instead of by the $8$ minutes between the rows, getting a rate of $22$ and $214 - 6(22) = 82$.\n\n**Test Day Takeaway:** With a constant rate, find the change per single unit of time first, then count how many units separate the row you have from the time you want.",
+    "difficulty": "hard",
+    "band": 7,
+    "skills": [
+     "slope-from-points"
+    ],
+    "domain": "algebra",
+    "passage": null,
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": {
+     "type": "dataTable",
+     "params": {
+      "headers": [
+       "Time (minutes)",
+       "Volume (gallons)"
+      ],
+      "rows": [
+       {
+        "__fsNestedArray": [
+         "6",
+         "214"
+        ]
+       },
+       {
+        "__fsNestedArray": [
+         "14",
+         "302"
+        ]
+       },
+       {
+        "__fsNestedArray": [
+         "22",
+         "390"
+        ]
+       }
+      ]
+     }
+    },
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "math",
+    "moduleIndex": 3,
+    "questionIndex": 8
+   },
+   {
+    "id": "math-test6-module-2-7",
+    "type": "fill-in",
+    "stem": "In the $xy$-plane, line $j$ passes through the points $(1, 3)$ and $(9, -1)$. Line $k$ is perpendicular to line $j$ and is defined by $ax + 12y = 60$, where $a$ is a constant. What is the value of $a$?",
+    "choices": null,
+    "correctAnswer": "-24",
+    "explanation": "**SAT Pattern: Perpendicular Slope**\n\n**The correct answer is $-24$.**\n\n**The Fast Way (~45s):** Line $j$ has slope $\\frac{-1 - 3}{9 - 1} = -\\frac{1}{2}$, so line $k$ must have slope $2$. Since $ax + 12y = 60$ has slope $-\\frac{a}{12}$, $-\\frac{a}{12} = 2$ and $a = -24$.\n\n**The Full Solution:**\nStep 1: Find the slope of line $j$ from its two points: $\\frac{-1 - 3}{9 - 1} = \\frac{-4}{8} = -\\frac{1}{2}$.\nStep 2: A perpendicular line has the negative reciprocal slope, so line $k$ has slope $2$. Solve its equation for $y$: $12y = -ax + 60$, so $y = -\\frac{a}{12}x + 5$ and its slope is $-\\frac{a}{12}$.\nStep 3: Set the slopes equal: $-\\frac{a}{12} = 2$, so $a = -24$. Check: with $a = -24$, line $k$ is $-24x + 12y = 60$, or $y = 2x + 5$, and $\\left(-\\frac{1}{2}\\right)(2) = -1$ ✓\n\n**Common Mistakes:**\n* $24$: reads the slope of $ax + 12y = 60$ as $\\frac{a}{12}$ and solves $\\frac{a}{12} = 2$, dropping the sign that appears when the $ax$ term moves across.\n* $6$: uses line $j$'s own slope, solving $-\\frac{a}{12} = -\\frac{1}{2}$; that makes the lines parallel, not perpendicular.\n* $-6$: changes the sign of the slope without flipping the fraction, solving $-\\frac{a}{12} = \\frac{1}{2}$.\n\n**Test Day Takeaway:** A line written as $Ax + By = C$ has slope $-\\frac{A}{B}$; solve for $y$ before matching slopes, or the sign of the constant comes out backward.",
+    "difficulty": "hard",
+    "band": 7,
+    "skills": [
+     "perpendicular-negative-reciprocal"
+    ],
+    "domain": "algebra",
+    "passage": null,
+    "passages": null,
+    "studentNotes": null,
+    "questionContinued": null,
+    "diagram": null,
+    "questionTable": null,
+    "questionFormula": null,
+    "section": "math",
+    "moduleIndex": 3,
+    "questionIndex": 9
+   }
+  ],
+  "answers": {
+   "0-0": "B",
+   "0-1": "D",
+   "0-2": "B",
+   "0-3": "D",
+   "0-4": "A",
+   "0-5": "B",
+   "0-6": "D",
+   "0-7": "A",
+   "0-8": "A",
+   "0-9": "B",
+   "1-0": "A",
+   "1-1": "D",
+   "1-2": "D",
+   "1-3": "C",
+   "1-4": "C",
+   "1-5": "A",
+   "1-6": "D",
+   "1-7": "B",
+   "1-8": "B",
+   "1-9": "B",
+   "2-0": "B",
+   "2-1": "D",
+   "2-2": "A",
+   "2-3": "A",
+   "2-4": "C",
+   "2-5": "B",
+   "2-6": "B",
+   "2-7": "A",
+   "2-8": 16,
+   "2-9": 14,
+   "3-0": "C",
+   "3-1": "B",
+   "3-2": "C",
+   "3-3": "A",
+   "3-4": "B",
+   "3-5": "B",
+   "3-6": "C",
+   "3-7": "C",
+   "3-8": 3,
+   "3-9": 4
+  },
+  "diagnosticData": {
+   "questionDetails": {
+    "0-0": {
+     "timeSpent": 78.8,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": false,
+     "difficulty": "medium",
+     "skills": [
+      "command-of-evidence-quantitative"
+     ]
+    },
+    "0-1": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": true,
+     "difficulty": "medium",
+     "skills": [
+      "inferences"
+     ]
+    },
+    "0-2": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": false,
+     "difficulty": "medium",
+     "skills": [
+      "words-in-context"
+     ]
+    },
+    "0-3": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": true,
+     "difficulty": "medium",
+     "skills": [
+      "text-structure-and-purpose"
+     ]
+    },
+    "0-4": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": true,
+     "difficulty": "medium",
+     "skills": [
+      "boundaries"
+     ]
+    },
+    "0-5": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": true,
+     "difficulty": "medium",
+     "skills": [
+      "form-structure-and-sense"
+     ]
+    },
+    "0-6": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": false,
+     "difficulty": "medium",
+     "skills": [
+      "transitions"
+     ]
+    },
+    "0-7": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": true,
+     "difficulty": "medium",
+     "skills": [
+      "rhetorical-synthesis"
+     ]
+    },
+    "0-8": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": true,
+     "difficulty": "medium",
+     "skills": [
+      "central-ideas-and-details"
+     ]
+    },
+    "0-9": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": false,
+     "difficulty": "medium",
+     "skills": [
+      "cross-text-connections"
+     ]
+    },
+    "1-0": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": false,
+     "difficulty": "medium",
+     "skills": [
+      "command-of-evidence-textual"
+     ]
+    },
+    "1-1": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": false,
+     "difficulty": "medium",
+     "skills": [
+      "inferences"
+     ]
+    },
+    "1-2": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": true,
+     "difficulty": "hard",
+     "skills": [
+      "text-structure-and-purpose"
+     ]
+    },
+    "1-3": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": false,
+     "difficulty": "hard",
+     "skills": [
+      "words-in-context"
+     ]
+    },
+    "1-4": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": false,
+     "difficulty": "medium",
+     "skills": [
+      "boundaries"
+     ]
+    },
+    "1-5": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": false,
+     "difficulty": "hard",
+     "skills": [
+      "form-structure-and-sense"
+     ]
+    },
+    "1-6": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": false,
+     "difficulty": "hard",
+     "skills": [
+      "transitions"
+     ]
+    },
+    "1-7": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": false,
+     "difficulty": "hard",
+     "skills": [
+      "rhetorical-synthesis"
+     ]
+    },
+    "1-8": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": true,
+     "difficulty": "medium",
+     "skills": [
+      "inferences"
+     ]
+    },
+    "1-9": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": true,
+     "difficulty": "hard",
+     "skills": [
+      "text-structure-and-purpose"
+     ]
+    },
+    "2-0": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": true,
+     "difficulty": "medium",
+     "skills": [
+      "word-problem-to-equation"
+     ]
+    },
+    "2-1": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": false,
+     "difficulty": "medium",
+     "skills": [
+      "function-evaluation"
+     ]
+    },
+    "2-2": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": true,
+     "difficulty": "medium",
+     "skills": [
+      "probability-basics"
+     ]
+    },
+    "2-3": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": false,
+     "difficulty": "medium",
+     "skills": [
+      "percent-of-value",
+      "percent-change"
+     ]
+    },
+    "2-4": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": true,
+     "difficulty": "medium",
+     "skills": [
+      "discriminant-analysis"
+     ]
+    },
+    "2-5": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": false,
+     "difficulty": "medium",
+     "skills": [
+      "distributive-property"
+     ]
+    },
+    "2-6": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": false,
+     "difficulty": "medium",
+     "skills": [
+      "tangent-lines",
+      "discriminant-analysis"
+     ]
+    },
+    "2-7": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": true,
+     "difficulty": "medium",
+     "skills": [
+      "circle-equation"
+     ]
+    },
+    "2-8": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": true,
+     "difficulty": "medium",
+     "skills": [
+      "function-notation"
+     ]
+    },
+    "2-9": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": false,
+     "difficulty": "medium",
+     "skills": [
+      "function-transformations",
+      "vertex-form"
+     ]
+    },
+    "3-0": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": false,
+     "difficulty": "hard",
+     "skills": [
+      "slope-intercept-form"
+     ]
+    },
+    "3-1": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": false,
+     "difficulty": "hard",
+     "skills": [
+      "solving-equations"
+     ]
+    },
+    "3-2": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": true,
+     "difficulty": "hard",
+     "skills": [
+      "conditional-probability",
+      "two-way-table"
+     ]
+    },
+    "3-3": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": false,
+     "difficulty": "hard",
+     "skills": [
+      "find-median"
+     ]
+    },
+    "3-4": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": true,
+     "difficulty": "hard",
+     "skills": [
+      "finding-roots-factoring"
+     ]
+    },
+    "3-5": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": false,
+     "difficulty": "hard",
+     "skills": [
+      "converting-quadratic-forms"
+     ]
+    },
+    "3-6": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": false,
+     "difficulty": "hard",
+     "skills": [
+      "soh-cah-toa",
+      "pythagorean-theorem"
+     ]
+    },
+    "3-7": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": false,
+     "difficulty": "hard",
+     "skills": [
+      "triangle-area"
+     ]
+    },
+    "3-8": {
+     "timeSpent": 45,
+     "visits": 1,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": false,
+     "difficulty": "hard",
+     "skills": [
+      "slope-from-points"
+     ]
+    },
+    "3-9": {
+     "timeSpent": 45.3,
+     "visits": 2,
+     "answerChanges": 0,
+     "answerChangeEvents": [],
+     "usedCalculator": false,
+     "markedForReview": false,
+     "eliminatedChoices": [],
+     "isCorrect": false,
+     "difficulty": "hard",
+     "skills": [
+      "perpendicular-negative-reciprocal"
+     ]
+    }
+   },
+   "navigationPattern": "jumping",
+   "totalNavigationEvents": 1,
+   "moduleTimeRemaining": {},
+   "questionsVisitedMultipleTimes": 1,
+   "calculatorUsageCount": 0,
+   "markedForReviewCount": 0,
+   "mathRoute": "hard",
+   "rwRoute": "hard"
+  },
+  "scoreBand": {
+   "low": 820,
+   "high": 900,
+   "rwBand": {
+    "low": 420,
+    "high": 480
+   },
+   "mathBand": {
+    "low": 380,
+    "high": 440
+   }
+  },
+  "routes": {
+   "rw": "hard",
+   "math": "hard"
+  },
+  "isDiagnostic": true,
+  "snapshotVersion": 1
+ }
+}

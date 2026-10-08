@@ -62,9 +62,12 @@ const ERROR_PHRASES = {
  * no honest evidence to cite (the UI then just omits the line).
  *
  * @param {{testAccuracy?:number, primaryErrorType?:string, evidenceLevel?:string, trend?:string}} gap
+ * @param {{sourceLabel?:string}} [opts] - what produced the evidence; a plan
+ *   built from the mini diagnostic passes 'your diagnostic' (the student has
+ *   taken no test yet, so "your last test" would be false)
  * @returns {string|null}
  */
-export const buildBecauseLine = (gap = {}) => {
+export const buildBecauseLine = (gap = {}, { sourceLabel = 'your last test' } = {}) => {
   if (!gap) return null;
   // Onboarding self-reports (the starter plan stamps this exact error type)
   // have no test evidence to cite — frame the check-in instead.
@@ -73,7 +76,7 @@ export const buildBecauseLine = (gap = {}) => {
   }
   const parts = [];
   if (Number.isFinite(gap.testAccuracy)) {
-    parts.push(`You scored ${Math.round(gap.testAccuracy)}% on this on your last test`);
+    parts.push(`You scored ${Math.round(gap.testAccuracy)}% on this on ${sourceLabel}`);
   }
   const phrase = ERROR_PHRASES[String(gap.primaryErrorType || '').toLowerCase()];
   if (phrase) parts.push(phrase);
@@ -87,12 +90,12 @@ export const buildBecauseLine = (gap = {}) => {
   return `${parts.join(' — ')}.`;
 };
 
-export const buildSkillDrillActivity = (gap) => {
+export const buildSkillDrillActivity = (gap, becauseOpts = {}) => {
   const section = gap.section === 'rw' ? 'rw' : 'math';
   const label = section === 'rw'
     ? (RW_SKILL_LABELS[gap.skillId] || gap.skillName || gap.skillId)
     : (gap.skillName || gap.skillId);
-  const because = buildBecauseLine(gap);
+  const because = buildBecauseLine(gap, becauseOpts);
   return {
     ...(because ? { because } : {}),
     type: 'practice',
